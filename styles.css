@@ -4,7 +4,7 @@
   --white: #FFFFFF;
   --index-white: rgba(255, 255, 255, 0.85);
   --scrim: rgba(10, 10, 10, 0.35);
-  --frost: rgba(255, 255, 255, 0.45);
+  --frost: rgba(255, 255, 255, 0.7); /* 0.45 on bright photos; these are moody */
   --placeholder: #F2F2F2;
   --hover-fill: #E8E8E8;
 
@@ -477,6 +477,8 @@ h1, h2 {
 
 .lightbox__close { position: absolute; top: 1rem; right: 1rem; z-index: 1; }
 .lightbox__prev, .lightbox__next { justify-self: center; }
+.lightbox.is-single .lightbox__prev,
+.lightbox.is-single .lightbox__next { visibility: hidden; }
 
 /* Reveal on scroll (classes added by script.js) */
 .reveal {

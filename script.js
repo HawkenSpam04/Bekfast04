@@ -2,24 +2,34 @@
 
 /* ── Your galleries ──────────────────────────────────────────────
    Each hero item in index.html has data-gallery="name". Clicking it
-   opens that gallery's photos full screen. These are placeholders
-   from picsum.photos; swap in your own, for example:
-     streets: ['photos/streets/01.jpg', 'photos/streets/02.jpg'],
+   opens that gallery's photos full screen, in this order. To add a
+   photo, put it in the matching photos/ folder and list it here.
    ───────────────────────────────────────────────────────────────── */
-const placeholders = (name, count) =>
-  Array.from({ length: count }, (_, i) =>
-    i % 3 === 1
-      ? `https://picsum.photos/seed/bekfast04-${name}-${i + 1}/1067/1600`
-      : `https://picsum.photos/seed/bekfast04-${name}-${i + 1}/1600/1067`);
-
 const GALLERIES = {
-  streets: placeholders('streets', 9),
-  faces: placeholders('faces', 9),
-  afterdark: placeholders('afterdark', 9),
-  wildlife: placeholders('wildlife', 9),
-  coastline: placeholders('coastline', 9),
-  motion: placeholders('motion', 9),
-  skyline: placeholders('skyline', 9),
+  architecture: [
+    'photos/architecture/ceiling.jpg',
+  ],
+  fashion: [
+    'photos/fashion/walk-away-reeds.jpg',
+    'photos/fashion/back-print-field.jpg',
+    'photos/fashion/walk-toward-cap.jpg',
+    'photos/fashion/walk-look-right.jpg',
+    'photos/fashion/walk-glance.jpg',
+    'photos/fashion/back-print-walk.jpg',
+    'photos/fashion/walk-wide.jpg',
+  ],
+  portraits: [
+    'photos/portraits/standing-reeds.jpg',
+    'photos/portraits/smile.jpg',
+    'photos/portraits/walk-toward.jpg',
+    'photos/portraits/standing-meadow.jpg',
+  ],
+  product: [
+    'photos/product/front-print-walk.jpg',
+    'photos/product/front-print-closeup.jpg',
+    'photos/product/back-print-closeup.jpg',
+    'photos/product/front-print-detail.jpg',
+  ],
 };
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -98,6 +108,7 @@ function renderLightbox() {
   lightboxImg.src = photos[position];
   lightboxImg.alt = `${label} photo ${position + 1} of ${photos.length}`.trim();
   lightboxCount.textContent = `${label} ${pad(position + 1)} / ${pad(photos.length)}`.trim();
+  lightbox.classList.toggle('is-single', photos.length < 2);
   // Warm up the next photo so stepping through feels instant
   new Image().src = photos[(position + 1) % photos.length];
 }
@@ -110,6 +121,7 @@ function openLightbox(photos, position = 0, label = '') {
 
 function step(delta) {
   const total = viewer.photos.length;
+  if (total < 2) return;
   viewer.position = (viewer.position + delta + total) % total;
   renderLightbox();
 }

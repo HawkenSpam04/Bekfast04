@@ -27,8 +27,8 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 - **Darkroom Black** (#0A0A0A) — Hero, header band and cinema surfaces; primary text on light backgrounds; lightbox backdrop
 - **Paper White** (#FFFFFF) — Main canvas below the fold; all text on dark media; primary button fill on dark
 - **Index White** (rgba(255,255,255,0.85)) — Resting state of hero index items. The hovered item goes to full Paper White
-- **Photo Scrim** (rgba(10,10,10,0.15)) — Overlay on cover photos so white header type stays legible. Raise to 0.35 on very bright images, never higher
-- **Frost Panel** (rgba(255,255,255,0.45)) — Translucent panel behind text blocks placed over a photograph (services accordion)
+- **Photo Scrim** (rgba(10,10,10,0.15)) — Overlay on cover photos so white header type stays legible. Raise it on bright photos until white text keeps at least 3:1 contrast, usually 0.35–0.5
+- **Frost Panel** (rgba(255,255,255,0.45)) — Translucent panel behind text blocks placed over a photograph (services accordion). Over dark or moody photos raise it to 0.7, or it reads as a grey box
 - **Haze Panel** (rgba(240,240,240,0.19)) — Lighter tint behind a single heading, only over a bright part of a photograph. Anywhere darker, use the Frost Panel so dark text stays readable
 - **Ink Rule** (#0A0A0A, 1px) — Dividers between accordion rows and list items on light or frosted surfaces
 - **Ash Gray** (#8A8A8A) — *Optional.* Captions, metadata, disabled states. Use sparingly
@@ -79,7 +79,7 @@ The signature move: a full-viewport list of portfolio categories over moving foo
 - A left-aligned column starting about `9vw` from the left edge, vertically centered. One item per gallery, UPPERCASE Oxanium with a leading underscore: `_AQUA`, `_AUTOMOTIVE`, `_DESERT`
 - Hover or keyboard focus on an item: the background crossfades (about 500ms) from the video to that gallery's cover photo, and the item brightens from Index White to Paper White. Leaving the list brings the video back
 - Every item links to its gallery. No headline, tagline or extra button in the hero body; the header's pill is the only call to action
-- 6–10 items, each one or two words
+- 4–10 items, each one or two words
 - Touch screens have no hover: a tap goes straight to the gallery, and the video plays on its own
 
 ## 6. Layout Principles

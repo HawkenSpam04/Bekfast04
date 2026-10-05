@@ -8,8 +8,9 @@
     (ig.me/m/hi.studios.99). Once there's an email, switch them to
     mailto:you@yourdomain and bring back the email icons, which are
     commented out in the header and footer.
-  - Photos: every picsum.photos link is a placeholder. Swap in your own.
-    Gallery photos for the hero list live at the top of script.js.
+  - Photos: they live in the photos/ folder, sorted by category. The
+    gallery lists for the hero items are at the top of script.js. The
+    About portrait is still a placeholder from picsum.photos.
   - Background video: put your reel's path in the video's data-src,
     e.g. data-src="media/reel.mp4" (muted, looping, ideally under 10 MB).
   - Text: everything marked "Placeholder" is yours to rewrite.
@@ -83,7 +84,7 @@
   <main id="main">
     <section class="hero" id="top" aria-label="Portfolio">
       <div class="hero__media" aria-hidden="true">
-        <img class="hero__poster" src="https://picsum.photos/seed/bekfast04-reel/1920/1080" alt="" width="1920" height="1080" fetchpriority="high">
+        <img class="hero__poster" src="photos/architecture/ceiling.jpg" alt="" width="1500" height="2000" fetchpriority="high">
         <video class="hero__video" muted loop playsinline preload="none" data-src=""></video>
         <!-- script.js adds the hover covers here -->
         <div class="hero__scrim"></div>
@@ -94,19 +95,17 @@
       <!-- One item per gallery. data-gallery matches a name in script.js;
            data-cover is the photo shown behind the list on hover. -->
       <ul class="index">
-        <li><a class="index__item" href="#work" data-gallery="streets"   data-cover="https://picsum.photos/seed/bekfast04-streets/1920/1080">_STREETS</a></li>
-        <li><a class="index__item" href="#work" data-gallery="faces"     data-cover="https://picsum.photos/seed/bekfast04-faces/1920/1080">_FACES</a></li>
-        <li><a class="index__item" href="#work" data-gallery="afterdark" data-cover="https://picsum.photos/seed/bekfast04-afterdark/1920/1080">_AFTER DARK</a></li>
-        <li><a class="index__item" href="#work" data-gallery="wildlife"  data-cover="https://picsum.photos/seed/bekfast04-wildlife/1920/1080">_WILDLIFE</a></li>
-        <li><a class="index__item" href="#work" data-gallery="coastline" data-cover="https://picsum.photos/seed/bekfast04-coastline/1920/1080">_COASTLINE</a></li>
-        <li><a class="index__item" href="#work" data-gallery="motion"    data-cover="https://picsum.photos/seed/bekfast04-motion/1920/1080">_MOTION</a></li>
-        <li><a class="index__item" href="#work" data-gallery="skyline"   data-cover="https://picsum.photos/seed/bekfast04-skyline/1920/1080">_SKYLINE</a></li>
+        <li><a class="index__item" href="#work" data-gallery="architecture" data-cover="photos/architecture/ceiling.jpg">_ARCHITECTURE</a></li>
+        <li><a class="index__item" href="#work" data-gallery="fashion"      data-cover="photos/fashion/walk-away-reeds.jpg">_FASHION</a></li>
+        <li><a class="index__item" href="#work" data-gallery="portraits"    data-cover="photos/portraits/standing-reeds.jpg">_PORTRAITS</a></li>
+        <li><a class="index__item" href="#work" data-gallery="product"      data-cover="photos/product/front-print-walk.jpg">_PRODUCT</a></li>
       </ul>
     </section>
 
     <section class="services" id="services" aria-labelledby="services-title">
-      <!-- Use a bright photo here (sky, sand, snow): the text on top is dark. -->
-      <img class="services__bg" src="https://picsum.photos/seed/bekfast04-sky/2400/1350" alt="" width="2400" height="1350" loading="lazy">
+      <!-- On desktop the panels cover the right side, so pick a photo
+           whose subject sits left of center. -->
+      <img class="services__bg" src="photos/fashion/walk-wide.jpg" alt="" width="2000" height="1333" loading="lazy">
       <div class="services__inner">
         <div class="services__panel">
           <h2 class="services__title" id="services-title">What I shoot</h2>
@@ -136,10 +135,10 @@
 
     <section class="work" id="work" aria-label="Selected work">
       <ul class="strip">
-        <li data-reveal="0"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-1/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-1/600/800" alt="Placeholder photo 1" width="600" height="800" loading="lazy"></a></li>
-        <li data-reveal="1"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-2/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-2/600/800" alt="Placeholder photo 2" width="600" height="800" loading="lazy"></a></li>
-        <li data-reveal="2"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-3/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-3/600/800" alt="Placeholder photo 3" width="600" height="800" loading="lazy"></a></li>
-        <li data-reveal="3"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-4/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-4/600/800" alt="Placeholder photo 4" width="600" height="800" loading="lazy"></a></li>
+        <li data-reveal="0"><a class="tile" href="photos/portraits/smile.jpg"><img src="photos/portraits/smile.jpg" alt="Smiling model in a white CHICANÉ tee in a meadow" width="2000" height="1333" loading="lazy"></a></li>
+        <li data-reveal="1"><a class="tile" href="photos/product/back-print-closeup.jpg"><img src="photos/product/back-print-closeup.jpg" alt="Back of a white tee with a black S-curve print" width="2000" height="1333" loading="lazy"></a></li>
+        <li data-reveal="2"><a class="tile" href="photos/fashion/walk-toward-cap.jpg"><img src="photos/fashion/walk-toward-cap.jpg" alt="Model in a grey cap and white tee walking through tall grass" width="2000" height="1333" loading="lazy"></a></li>
+        <li data-reveal="3"><a class="tile" href="photos/product/front-print-closeup.jpg"><img src="photos/product/front-print-closeup.jpg" alt="Close-up of the CHICANÉ print on a white tee" width="2000" height="1333" loading="lazy"></a></li>
       </ul>
     </section>
 
