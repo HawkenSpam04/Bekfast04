@@ -1,0 +1,195 @@
+<!doctype html>
+<!--
+  Homepage built from DESIGN.md.
+
+  To make it yours:
+  - Name: replace BEKFAST04 (title, wordmark, menu).
+  - Email: replace hello@example.com everywhere it appears.
+  - Social links: replace the "#" links in the header and footer.
+  - Photos: every picsum.photos link is a placeholder. Swap in your own.
+    Gallery photos for the hero list live at the top of script.js.
+  - Background video: put your reel's path in the video's data-src,
+    e.g. data-src="media/reel.mp4" (muted, looping, ideally under 10 MB).
+  - Text: everything marked "Placeholder" is yours to rewrite.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BEKFAST04 — Photo &amp; Film</title>
+  <meta name="description" content="Photography and video portfolio.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Crect x='7' y='22' width='18' height='3' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400&family=Geist:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <ul class="socials" aria-label="Social links">
+      <li>
+        <a class="social-chip" href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-chip" href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="social-chip" href="mailto:hello@example.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <div class="brand">
+      <a class="wordmark" href="#top">BEKFAST04</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#top" aria-current="page">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+
+    <a class="btn btn--pill header-cta" href="mailto:hello@example.com">Book a shoot</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <dialog class="menu" id="menu" aria-label="Menu">
+    <div class="menu__top">
+      <span class="wordmark wordmark--small">BEKFAST04</span>
+      <button class="icon-button menu__close" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <nav class="menu__nav" aria-label="Main">
+      <a href="#top">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="menu__bottom">
+      <a class="btn btn--pill" href="mailto:hello@example.com">Book a shoot</a>
+      <!-- script.js copies the header's social links in here -->
+    </div>
+  </dialog>
+
+  <main id="main">
+    <section class="hero" id="top" aria-label="Portfolio">
+      <div class="hero__media" aria-hidden="true">
+        <img class="hero__poster" src="https://picsum.photos/seed/bekfast04-reel/1920/1080" alt="" width="1920" height="1080" fetchpriority="high">
+        <video class="hero__video" muted loop playsinline preload="none" data-src=""></video>
+        <!-- script.js adds the hover covers here -->
+        <div class="hero__scrim"></div>
+      </div>
+
+      <h1 class="visually-hidden">BEKFAST04, photography and film</h1>
+
+      <!-- One item per gallery. data-gallery matches a name in script.js;
+           data-cover is the photo shown behind the list on hover. -->
+      <ul class="index">
+        <li><a class="index__item" href="#work" data-gallery="streets"   data-cover="https://picsum.photos/seed/bekfast04-streets/1920/1080">_STREETS</a></li>
+        <li><a class="index__item" href="#work" data-gallery="faces"     data-cover="https://picsum.photos/seed/bekfast04-faces/1920/1080">_FACES</a></li>
+        <li><a class="index__item" href="#work" data-gallery="afterdark" data-cover="https://picsum.photos/seed/bekfast04-afterdark/1920/1080">_AFTER DARK</a></li>
+        <li><a class="index__item" href="#work" data-gallery="wildlife"  data-cover="https://picsum.photos/seed/bekfast04-wildlife/1920/1080">_WILDLIFE</a></li>
+        <li><a class="index__item" href="#work" data-gallery="coastline" data-cover="https://picsum.photos/seed/bekfast04-coastline/1920/1080">_COASTLINE</a></li>
+        <li><a class="index__item" href="#work" data-gallery="motion"    data-cover="https://picsum.photos/seed/bekfast04-motion/1920/1080">_MOTION</a></li>
+        <li><a class="index__item" href="#work" data-gallery="skyline"   data-cover="https://picsum.photos/seed/bekfast04-skyline/1920/1080">_SKYLINE</a></li>
+      </ul>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <!-- Use a bright photo here (sky, sand, snow): the text on top is dark. -->
+      <img class="services__bg" src="https://picsum.photos/seed/bekfast04-sky/2400/1350" alt="" width="2400" height="1350" loading="lazy">
+      <div class="services__inner">
+        <div class="services__panel">
+          <h2 class="services__title" id="services-title">What I shoot</h2>
+          <!-- Placeholder text -->
+          <div class="accordion">
+            <details>
+              <summary>Portraits<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
+              <p>Headshots and portraits on location, in natural light or with a simple flash setup.</p>
+            </details>
+            <details>
+              <summary>Events<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
+              <p>Games, concerts and get-togethers, covered start to finish and delivered as an online gallery.</p>
+            </details>
+            <details>
+              <summary>Street &amp; travel<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
+              <p>Candid photos of places and the people in them, from the corner store to the other side of the country.</p>
+            </details>
+            <details>
+              <summary>Video &amp; short films<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
+              <p>Highlight reels, music videos and short edits, shot and cut in-house.</p>
+            </details>
+          </div>
+          <a class="btn btn--keyline" href="mailto:hello@example.com">Contact me</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-label="Selected work">
+      <ul class="strip">
+        <li data-reveal="0"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-1/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-1/600/800" alt="Placeholder photo 1" width="600" height="800" loading="lazy"></a></li>
+        <li data-reveal="1"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-2/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-2/600/800" alt="Placeholder photo 2" width="600" height="800" loading="lazy"></a></li>
+        <li data-reveal="2"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-3/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-3/600/800" alt="Placeholder photo 3" width="600" height="800" loading="lazy"></a></li>
+        <li data-reveal="3"><a class="tile" href="https://picsum.photos/seed/bekfast04-strip-4/1200/1600"><img src="https://picsum.photos/seed/bekfast04-strip-4/600/800" alt="Placeholder photo 4" width="600" height="800" loading="lazy"></a></li>
+      </ul>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <img class="about__portrait" src="https://picsum.photos/seed/bekfast04-me/660/660" alt="Placeholder portrait" width="330" height="330" loading="lazy">
+      <div class="about__text">
+        <h2 id="about-title">behind the lens</h2>
+        <!-- Placeholder text -->
+        <p>This is where your story goes. Say where you're from, what you love to shoot, and how you got started. Two or three sentences in your own voice is plenty.</p>
+        <p>Then add what you're looking for: the kinds of projects you want, where you're based, and the best way to reach you.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <ul class="socials socials--footer" aria-label="Social links">
+      <li>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:hello@example.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p>© Copyright <span data-year>2026</span> | All rights reserved</p>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Photo viewer">
+    <button class="icon-button lightbox__close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <button class="icon-button lightbox__prev" type="button" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+    </button>
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" alt="">
+      <figcaption class="lightbox__count"></figcaption>
+    </figure>
+    <button class="icon-button lightbox__next" type="button" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </button>
+  </dialog>
+</body>
+</html>

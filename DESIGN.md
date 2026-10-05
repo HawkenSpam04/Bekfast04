@@ -29,7 +29,7 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 - **Index White** (rgba(255,255,255,0.85)) — Resting state of hero index items. The hovered item goes to full Paper White
 - **Photo Scrim** (rgba(10,10,10,0.15)) — Overlay on cover photos so white header type stays legible. Raise to 0.35 on very bright images, never higher
 - **Frost Panel** (rgba(255,255,255,0.45)) — Translucent panel behind text blocks placed over a photograph (services accordion)
-- **Haze Panel** (rgba(240,240,240,0.19)) — Lighter tint behind a single heading floating over a photograph
+- **Haze Panel** (rgba(240,240,240,0.19)) — Lighter tint behind a single heading, only over a bright part of a photograph. Anywhere darker, use the Frost Panel so dark text stays readable
 - **Ink Rule** (#0A0A0A, 1px) — Dividers between accordion rows and list items on light or frosted surfaces
 - **Ash Gray** (#8A8A8A) — *Optional.* Captions, metadata, disabled states. Use sparingly
 
@@ -89,7 +89,7 @@ The signature move: a full-viewport list of portfolio categories over moving foo
 - **Grid-first:** CSS Grid for every tile layout; no percentage math with `calc()`
 - **Section spacing:** `clamp(3rem, 8vw, 6rem)` between content sections. Photo sections sit one gutter apart
 - **Page templates:**
-  - *Home:* Index hero → services (full-bleed photo, Haze Panel heading and Frost Panel accordion on the right, photo CTA below) → a strip of four portrait photos (3:4) → About (circular portrait left, heading and body right, a second paragraph full width) → footer
+  - *Home:* Index hero → services (full-bleed photo, frosted heading and accordion panels on the right, photo CTA below) → a strip of four portrait photos (3:4) → About (circular portrait left, heading and body right) → footer
   - *Gallery:* cover photo (about `66dvh`, rounded bottom) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
   - *Video:* Darkroom Black header band → alternating zig-zag video rows on white, about `90px` apart
   - *Client gallery (e.g. real estate):* full-bleed cover with a scrim → 3-column 4:3 grid → footer
