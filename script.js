@@ -9,6 +9,18 @@ const GALLERIES = {
   architecture: [
     'photos/architecture/ceiling.jpg',
   ],
+  automotive: [
+    'photos/automotive/bmw-front.jpg',
+  ],
+  engagements: [
+    'photos/engagements/proposal-surprise.jpg',
+    'photos/engagements/proposal-kneel.jpg',
+    'photos/engagements/hug-kneeling.jpg',
+    'photos/engagements/hug-film.jpg',
+    'photos/engagements/ring-pinky.jpg',
+    'photos/engagements/ring-hands.jpg',
+    'photos/engagements/couple-portrait.jpg',
+  ],
   fashion: [
     'photos/fashion/walk-away-reeds.jpg',
     'photos/fashion/back-print-field.jpg',
@@ -18,11 +30,21 @@ const GALLERIES = {
     'photos/fashion/back-print-walk.jpg',
     'photos/fashion/walk-wide.jpg',
   ],
+  landscape: [
+    'photos/landscape/sunset-sun.jpg',
+    'photos/landscape/sunset-clouds.jpg',
+  ],
   portraits: [
     'photos/portraits/standing-reeds.jpg',
     'photos/portraits/smile.jpg',
     'photos/portraits/walk-toward.jpg',
     'photos/portraits/standing-meadow.jpg',
+    'photos/portraits/golden-closeup.jpg',
+    'photos/portraits/golden-smile-river.jpg',
+    'photos/portraits/golden-serious.jpg',
+    'photos/portraits/golden-standing.jpg',
+    'photos/portraits/laugh-green.jpg',
+    'photos/portraits/friends-talking.jpg',
   ],
   product: [
     'photos/product/front-print-walk.jpg',
