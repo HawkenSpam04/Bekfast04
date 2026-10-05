@@ -347,9 +347,23 @@ h1, h2 {
 
 .accordion details p {
   max-width: 52ch;
-  padding-bottom: 1rem;
+  padding-bottom: 0.25rem;
   animation: fade-in 400ms var(--ease);
 }
+
+.accordion__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-underline-offset: 4px;
+  animation: fade-in 400ms var(--ease);
+}
+.accordion__link:hover { text-decoration-thickness: 2px; }
 
 .services .btn--keyline { margin-top: 0.75rem; }
 

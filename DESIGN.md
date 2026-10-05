@@ -64,7 +64,7 @@ None. The photography is the color. When a state needs emphasis, use an underlin
 * **Nav links:** UPPERCASE body text, about `0.6em` apart. Active page: `1px` underline in `currentColor`, `2px` below the text. Hover: the underline draws in from the left (`scaleX` 0 → 1)
 * **Primary button ("Hire me"):** Full pill (`border-radius: 9999px`), Paper White fill, Darkroom Black text, padding `18px 31px` (about 126×56px). No border, no shadow. Hover: fill shifts to `#E8E8E8`. Active: `scale(0.98)`. On light surfaces, invert to a black pill with white text
 * **Photo CTA button ("Contact me"):** For a call to action placed directly on a photograph. Darkroom Black fill, white text, `2px` Paper White keyline, nearly square corners (`5px`), about 154×60px
-* **Accordion (services list):** Sits inside a Frost Panel on a photo. Rows separated by Ink Rules top and bottom, Oxanium `1.38rem` titles, `15px` vertical padding, a thin chevron on the right that rotates 180° when open. No cards, no shadows
+* **Accordion (services list):** Sits inside a Frost Panel on a photo. Rows separated by Ink Rules top and bottom, Oxanium `1.38rem` titles, `15px` vertical padding, a thin chevron on the right that rotates 180° when open. An open row ends with a small uppercase "See photos" link to that category's gallery. No cards, no shadows
 * **Photo tiles:** Sharp corners (`0` radius). No borders, shadows or captions on the grid. A click opens a full-screen lightbox on Darkroom Black
 * **Circular portrait:** The one exception to sharp corners. `330px` circle on desktop, cropped to head and shoulders, on the About section only
 * **Video row:** A 16:9 embed on one side; a section heading and a one-sentence description on the other. The sides alternate row to row

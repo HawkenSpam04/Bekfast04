@@ -104,12 +104,6 @@ for (const item of items) {
   item.addEventListener('pointerenter', () => { clearTimeout(resetTimer); showCover(item); });
   item.addEventListener('pointerleave', () => { resetTimer = setTimeout(() => showCover(null), 120); });
   item.addEventListener('focus', () => { buildCovers(); showCover(item); });
-  item.addEventListener('click', (event) => {
-    const photos = GALLERIES[item.dataset.gallery];
-    if (!photos || !photos.length) return;
-    event.preventDefault();
-    openLightbox(photos, 0, item.textContent.trim());
-  });
 }
 index.addEventListener('focusout', (event) => {
   if (!index.contains(event.relatedTarget)) showCover(null);
@@ -183,6 +177,17 @@ lightbox.addEventListener('click', (event) => {
 lightbox.addEventListener('close', () => {
   lightboxImg.removeAttribute('src');
 });
+
+// Hero items and the services "See photos" links open their gallery
+function openGallery(event) {
+  const name = event.currentTarget.dataset.gallery;
+  const photos = GALLERIES[name];
+  if (!photos || !photos.length) return;
+  event.preventDefault();
+  const heroItem = document.querySelector(`.index__item[data-gallery="${name}"]`);
+  openLightbox(photos, 0, heroItem ? heroItem.textContent.trim() : '');
+}
+for (const link of document.querySelectorAll('[data-gallery]')) link.addEventListener('click', openGallery);
 
 // Photo strip tiles open in the same viewer
 const tiles = [...document.querySelectorAll('.tile')];
