@@ -8,9 +8,22 @@
 const GALLERIES = {
   architecture: [
     'photos/architecture/ceiling.jpg',
+    'photos/architecture/window-ivy.jpg',
   ],
   automotive: [
     'photos/automotive/bmw-front.jpg',
+  ],
+  aviation: [
+    'photos/aviation/taxiway-sign.jpg',
+    'photos/aviation/walk-sign.jpg',
+    'photos/aviation/window-wipe.jpg',
+    'photos/aviation/wing-windshield.jpg',
+    'photos/aviation/canopy-wipe.jpg',
+    'photos/aviation/underside-wipe.jpg',
+    'photos/aviation/towel-closeup.jpg',
+    'photos/aviation/pose-spray.jpg',
+    'photos/aviation/portrait-white-tee.jpg',
+    'photos/aviation/portrait-cap.jpg',
   ],
   engagements: [
     'photos/engagements/proposal-surprise.jpg',
@@ -32,7 +45,9 @@ const GALLERIES = {
   ],
   landscape: [
     'photos/landscape/sunset-sun.jpg',
+    'photos/landscape/beach-panorama.jpg',
     'photos/landscape/sunset-clouds.jpg',
+    'photos/landscape/marsh-boardwalk.jpg',
   ],
   portraits: [
     'photos/portraits/standing-reeds.jpg',
@@ -45,6 +60,9 @@ const GALLERIES = {
     'photos/portraits/golden-standing.jpg',
     'photos/portraits/laugh-green.jpg',
     'photos/portraits/friends-talking.jpg',
+    'photos/portraits/swimmers.jpg',
+    'photos/portraits/backpack-profile.jpg',
+    'photos/portraits/autumn-field.jpg',
   ],
   product: [
     'photos/product/front-print-walk.jpg',
