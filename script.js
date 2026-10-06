@@ -78,6 +78,23 @@ const GALLERIES = {
     'photos/product/back-print-closeup.jpg',
     'photos/product/front-print-detail.jpg',
   ],
+  sports: [
+    'photos/sports/qb-run-color.jpg',
+    'photos/sports/number-2-back.jpg',
+    'photos/sports/line-of-scrimmage.jpg',
+    'photos/sports/number-14.jpg',
+    'photos/sports/number-24.jpg',
+    'photos/sports/number-13-run.jpg',
+    'photos/sports/team-line.jpg',
+    'photos/sports/three-under-lights.jpg',
+    'photos/sports/qb-run-bw.jpg',
+    'photos/sports/ball-carrier.jpg',
+    'photos/sports/qb-scramble.jpg',
+    'photos/sports/number-21-back.jpg',
+    'photos/sports/walk-to-line.jpg',
+    'photos/sports/collage-trio.jpg',
+    'photos/sports/collage-throw.jpg',
+  ],
 };
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
