@@ -36,12 +36,8 @@ const GALLERIES = {
   ],
   fashion: [
     'photos/fashion/walk-away-reeds.jpg',
-    'photos/fashion/back-print-field.jpg',
     'photos/fashion/walk-toward-cap.jpg',
-    'photos/fashion/walk-look-right.jpg',
     'photos/fashion/walk-glance.jpg',
-    'photos/fashion/back-print-walk.jpg',
-    'photos/fashion/walk-wide.jpg',
   ],
   landscape: [
     'photos/landscape/sunset-sun.jpg',
@@ -58,9 +54,7 @@ const GALLERIES = {
   ],
   portraits: [
     'photos/portraits/standing-reeds.jpg',
-    'photos/portraits/smile.jpg',
     'photos/portraits/walk-toward.jpg',
-    'photos/portraits/standing-meadow.jpg',
     'photos/portraits/golden-closeup.jpg',
     'photos/portraits/golden-smile-river.jpg',
     'photos/portraits/golden-serious.jpg',
@@ -80,7 +74,6 @@ const GALLERIES = {
   ],
   product: [
     'photos/product/front-print-walk.jpg',
-    'photos/product/front-print-closeup.jpg',
     'photos/product/back-print-closeup.jpg',
     'photos/product/front-print-detail.jpg',
   ],
