@@ -1,9 +1,10 @@
 'use strict';
 
 /* ── Your galleries ──────────────────────────────────────────────
-   Each hero item in index.html has data-gallery="name". Clicking it
-   opens that gallery's photos full screen, in this order. To add a
-   photo, put it in the matching photos/ folder and list it here.
+   Links in index.html with data-gallery="name" (the carousel captions
+   and the "See photos" links) open that gallery full screen, in this
+   order. To add a photo, put it in the matching photos/ folder and
+   list it here.
    ───────────────────────────────────────────────────────────────── */
 const GALLERIES = {
   architecture: [
@@ -80,59 +81,79 @@ const GALLERIES = {
 };
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const canHover = matchMedia('(hover: hover)');
 
-/* Background video: only loads when data-src is set and motion is allowed */
-const video = document.querySelector('.hero__video');
-if (video && video.dataset.src && !reduceMotion.matches) {
-  video.muted = true;
-  video.src = video.dataset.src;
-  video.addEventListener('playing', () => video.classList.add('is-playing'), { once: true });
-  video.play().catch(() => {});
+/* Hero carousel: rotates through the key photos. It starts paused for
+   people who prefer reduced motion; the dots and swipes still work. */
+const SLIDE_MS = 6500;
+const hero = document.querySelector('.hero');
+const slidesBox = hero.querySelector('.slides');
+const slides = [...hero.querySelectorAll('.slide')];
+const dots = [...hero.querySelectorAll('.dot')];
+const playToggle = hero.querySelector('.carousel-toggle');
+let currentSlide = 0;
+let playing = !reduceMotion.matches;
+let slideTimer;
+
+hero.style.setProperty('--slide-ms', `${SLIDE_MS}ms`);
+
+function showSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('is-active', i === currentSlide);
+    slide.inert = i !== currentSlide;
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('is-active', i === currentSlide);
+    if (i === currentSlide) dot.setAttribute('aria-current', 'true');
+    else dot.removeAttribute('aria-current');
+  });
+  scheduleNextSlide();
 }
 
-/* Hero index: hovering an item crossfades its cover in behind the list */
-const media = document.querySelector('.hero__media');
-const scrim = document.querySelector('.hero__scrim');
-const index = document.querySelector('.index');
-const items = [...document.querySelectorAll('.index__item')];
-const covers = new Map();
-
-function buildCovers() {
-  if (covers.size) return;
-  for (const item of items) {
-    if (!item.dataset.cover) continue;
-    const img = new Image();
-    img.className = 'hero__cover';
-    img.alt = '';
-    img.decoding = 'async';
-    img.src = item.dataset.cover;
-    media.insertBefore(img, scrim);
-    covers.set(item, img);
-  }
+function scheduleNextSlide() {
+  clearTimeout(slideTimer);
+  hero.classList.remove('is-playing');
+  if (!playing || document.hidden) return;
+  void hero.offsetWidth; // restarts the progress bar on the active dot
+  hero.classList.add('is-playing');
+  slideTimer = setTimeout(() => showSlide(currentSlide + 1), SLIDE_MS);
 }
 
-function showCover(active) {
-  for (const item of items) item.classList.toggle('is-active', item === active);
-  for (const [item, img] of covers) img.classList.toggle('is-active', item === active);
+function setPlaying(on) {
+  playing = on;
+  playToggle.classList.toggle('is-paused', !on);
+  playToggle.setAttribute('aria-label', on ? 'Pause slideshow' : 'Play slideshow');
+  // Screen readers announce slide changes only while it's paused
+  slidesBox.setAttribute('aria-live', on ? 'off' : 'polite');
+  scheduleNextSlide();
 }
 
-if (canHover.matches) {
-  // Covers load after the page, or on the first hover if that comes sooner
-  addEventListener('load', buildCovers, { once: true });
-  index.addEventListener('pointerenter', buildCovers, { once: true });
-}
+dots.forEach((dot, i) => dot.addEventListener('click', () => {
+  if (i !== currentSlide) showSlide(i);
+}));
+playToggle.addEventListener('click', () => setPlaying(!playing));
+document.addEventListener('visibilitychange', scheduleNextSlide);
 
-// A short delay on leave stops the background flickering between items
-let resetTimer;
-for (const item of items) {
-  item.addEventListener('pointerenter', () => { clearTimeout(resetTimer); showCover(item); });
-  item.addEventListener('pointerleave', () => { resetTimer = setTimeout(() => showCover(null), 120); });
-  item.addEventListener('focus', () => { buildCovers(); showCover(item); });
-}
-index.addEventListener('focusout', (event) => {
-  if (!index.contains(event.relatedTarget)) showCover(null);
+// Keyboard focus in the carousel stops it, so nothing moves while someone uses it
+hero.addEventListener('focusin', (event) => {
+  if (playing && event.target.matches(':focus-visible')) setPlaying(false);
 });
+
+// Swipe left or right on touch screens
+let heroSwipe = null;
+hero.addEventListener('pointerdown', (event) => {
+  if (event.pointerType !== 'mouse') heroSwipe = { x: event.clientX, y: event.clientY };
+});
+hero.addEventListener('pointerup', (event) => {
+  if (!heroSwipe) return;
+  const dx = event.clientX - heroSwipe.x;
+  const dy = event.clientY - heroSwipe.y;
+  heroSwipe = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showSlide(currentSlide + (dx < 0 ? 1 : -1));
+});
+hero.addEventListener('pointercancel', () => { heroSwipe = null; });
+
+setPlaying(playing);
 
 /* Lightbox */
 const lightbox = document.querySelector('.lightbox');
@@ -203,14 +224,13 @@ lightbox.addEventListener('close', () => {
   lightboxImg.removeAttribute('src');
 });
 
-// Hero items and the services "See photos" links open their gallery
+// Carousel captions and the services "See photos" links open their gallery
 function openGallery(event) {
   const name = event.currentTarget.dataset.gallery;
   const photos = GALLERIES[name];
   if (!photos || !photos.length) return;
   event.preventDefault();
-  const heroItem = document.querySelector(`.index__item[data-gallery="${name}"]`);
-  openLightbox(photos, 0, heroItem ? heroItem.textContent.trim() : '');
+  openLightbox(photos, 0, `_${name.toUpperCase()}`);
 }
 for (const link of document.querySelectorAll('[data-gallery]')) link.addEventListener('click', openGallery);
 
