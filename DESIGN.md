@@ -29,7 +29,7 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 - **Paper White** (#FFFFFF) — Main canvas below the fold; all text on dark media; primary button fill on dark
 - **Index White** (rgba(255,255,255,0.85)) — Secondary white text on dark, such as the photo viewer's counter
 - **Track White** (rgba(255,255,255,0.35)) — The unfilled part of the carousel's progress bars
-- **Photo Scrim** (rgba(10,10,10,0.6), fading to clear) — Fades over the top third and bottom half of hero photos so the white header and caption stay readable while the middle stays untouched. On a cover photo with no fades, use a flat 0.15 and raise it on bright photos until white text keeps at least 3:1 contrast
+- **Photo Scrim** (rgba(10,10,10,0.6), fading to clear) — Fades over the top third and bottom half of hero photos so the white header and caption stay readable while the middle stays untouched. The top fade holds full strength just under the top bar, behind the header, then fades out. On a cover photo with no fades, use a flat 0.15 and raise it on bright photos until white text keeps at least 3:1 contrast
 - **Frost Panel** (rgba(255,255,255,0.45)) — Translucent panel behind text blocks placed over a photograph (services accordion). Over dark or moody photos raise it to 0.7, or it reads as a grey box
 - **Haze Panel** (rgba(240,240,240,0.19)) — Lighter tint behind a single heading, only over a bright part of a photograph. Anywhere darker, use the Frost Panel so dark text stays readable
 - **Ink Rule** (#0A0A0A, 1px) — Dividers between accordion rows and list items on light or frosted surfaces
@@ -61,12 +61,13 @@ None. The photography is the color. When a state needs emphasis, use an underlin
 - A third family. Two families only, plus the optional mono
 
 ## 4. Component Stylings
+* **Top bar:** A thin Darkroom Black band across the very top, `40px` tall (`44px` on phones), above the header. Phone and email in `0.8125rem` body text, Index White, each with a `13px` line icon, centered on one line and split by a short Track White rule. Each is a `tel:`/`mailto:` link that goes Paper White and underlined on hover. It scrolls away with the page
 * **Header (over dark media):** Transparent, one row with three zones: social chips on the left, wordmark with the nav stacked under it in the center, primary button on the right. About `2.5rem` top padding. All white, sitting on whatever media is behind it
 * **Social chips:** `36px` Paper White circles holding `14px` Darkroom Black glyphs, `10px` apart. In the footer they invert to bare black glyphs (`22px`), centered
 * **Nav links:** UPPERCASE body text, about `0.6em` apart. Hover and keyboard focus: a `1px` underline in `currentColor`, `2px` below the text, draws in from the left (`scaleX` 0 → 1)
 * **Carousel controls:** Bottom right of the hero. One thin `2px` bar per photo in Track White inside a `44px`-tall button; the active bar fills with Paper White over the slide's display time. A pause/play icon button sits after the bars. No arrows, no numbered dots
 * **Primary button ("Hire me"):** Full pill (`border-radius: 9999px`), Paper White fill, Darkroom Black text, padding `18px 31px` (about 126×56px). No border, no shadow. Hover: fill shifts to `#E8E8E8`. Active: `scale(0.98)`. On light surfaces, invert to a black pill with white text
-* **Photo CTA button ("Contact me"):** For a call to action placed directly on a photograph. Darkroom Black fill, white text, `2px` Paper White keyline, nearly square corners (`5px`), about 154×60px
+* **Contact card ("Contact us"):** The photo CTA style opened up into a short list, under the services accordion. Darkroom Black fill, `2px` Paper White keyline, `5px` corners, full panel width. An uppercase bold "CONTACT US" label, then one row each for phone, email and Instagram message: an `18px` line icon and body text, at least `48px` tall, split by Track White rules
 * **Accordion (services list):** Sits inside a Frost Panel on a photo. Rows separated by Ink Rules top and bottom, Oxanium `1.38rem` titles, `15px` vertical padding, a thin chevron on the right that rotates 180° when open. An open row ends with a small uppercase "See photos" link to that category's gallery. No cards, no shadows
 * **Photo tiles:** Sharp corners (`0` radius). No borders, shadows or captions on the grid. A click opens a full-screen lightbox on Darkroom Black
 * **Booking embed:** The site's one form of booking. Google Calendar's booking page in a full-width iframe on Paper White, under an Oxanium heading and a one-sentence intro, set off from the section above by a full-width Ink Rule. Its height follows its own width: about `690px`, and `1150px` below `600px` wide, where Google stacks it into one column. Underneath, two text links: open the booking page in a new tab, and message on Instagram. The header's pill button scrolls here
@@ -93,7 +94,7 @@ The first impression: four key photos, one at a time, full screen.
 - **Grid-first:** CSS Grid for every tile layout; no percentage math with `calc()`
 - **Section spacing:** `clamp(3rem, 8vw, 6rem)` between content sections. Photo sections sit one gutter apart
 - **Page templates:**
-  - *Home:* Carousel hero → services (full-bleed photo, frosted heading and accordion panels on the right, photo CTA below) → a strip of four portrait photos (3:4) → About (circular portrait left, heading and body right) → Book a shoot (embedded booking page) → footer
+  - *Home:* Top bar → carousel hero → services (full-bleed photo, frosted heading and accordion panels on the right, contact card below) → a strip of four portrait photos (3:4) → About (circular portrait left, heading and body right) → Book a shoot (embedded booking page) → footer
   - *Gallery:* cover photo (about `66dvh`, rounded bottom) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
   - *Video:* Darkroom Black header band → alternating zig-zag video rows on white, about `90px` apart
   - *Client gallery (e.g. real estate):* full-bleed cover with a scrim → 3-column 4:3 grid → footer

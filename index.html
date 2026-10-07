@@ -7,10 +7,10 @@
   - Booking: "Book a shoot" scrolls to the booking section at the bottom,
     which embeds the Google Calendar booking page. Change availability,
     length or price in Google Calendar; nothing here needs editing.
-  - Contact: "Contact us" opens an Instagram message
-    (ig.me/m/hi.studios.99). Once there's an email, switch it to
-    mailto:you@yourdomain and bring back the email icons, which are
-    commented out in the header and footer.
+  - Contact: phone (518) 888-5992 and email ian@hi-studios.org appear in
+    two places: the bar at the very top and the "Contact us" card under
+    "What we shoot". Change both if either one changes. The card also
+    links to an Instagram message (ig.me/m/hi.studios.99).
   - Photos: they live in the photos/ folder, sorted by category. Each
     category's gallery list is at the top of script.js. The About photo
     is photos/about/hi-studios.jpg (a square crop).
@@ -34,6 +34,18 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <div class="topbar">
+    <a href="tel:+15188885992">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span class="visually-hidden">Phone: </span>(518) 888-5992
+    </a>
+    <span class="topbar__sep" aria-hidden="true"></span>
+    <a href="mailto:ian@hi-studios.org">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      <span class="visually-hidden">Email: </span>ian@hi-studios.org
+    </a>
+  </div>
+
   <header class="site-header">
     <ul class="socials" aria-label="Social links">
       <li>
@@ -41,13 +53,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
         </a>
       </li>
-      <!-- Email icon: add back once there's an email address
-      <li>
-        <a class="social-chip" href="mailto:you@yourdomain" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        </a>
-      </li>
-      -->
     </ul>
 
     <div class="brand">
@@ -193,7 +198,29 @@
               <a class="accordion__link" href="#work" data-gallery="sports">See photos</a>
             </details>
           </div>
-          <a class="btn btn--keyline" href="https://ig.me/m/hi.studios.99">Contact us</a>
+          <div class="contact-card" id="contact">
+            <h3 class="contact-card__title">Contact us</h3>
+            <ul class="contact-card__list">
+              <li>
+                <a href="tel:+15188885992">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+                  <span class="visually-hidden">Phone: </span>(518) 888-5992
+                </a>
+              </li>
+              <li>
+                <a href="mailto:ian@hi-studios.org">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                  <span class="visually-hidden">Email: </span>ian@hi-studios.org
+                </a>
+              </li>
+              <li>
+                <a href="https://ig.me/m/hi.studios.99">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+                  Message us on Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -243,13 +270,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
         </a>
       </li>
-      <!-- Email icon: add back once there's an email address
-      <li>
-        <a href="mailto:you@yourdomain" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        </a>
-      </li>
-      -->
     </ul>
     <p>© Copyright <span data-year>2026</span> | All rights reserved</p>
   </footer>
