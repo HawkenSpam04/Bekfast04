@@ -4,8 +4,11 @@
 
   To make it yours:
   - Name: HI STUDIOS (title, wordmark, menu).
-  - Contact: "Book a shoot" and "Contact us" open an Instagram message
-    (ig.me/m/hi.studios.99). Once there's an email, switch them to
+  - Booking: "Book a shoot" scrolls to the booking section at the bottom,
+    which embeds the Google Calendar booking page. Change availability,
+    length or price in Google Calendar; nothing here needs editing.
+  - Contact: "Contact us" opens an Instagram message
+    (ig.me/m/hi.studios.99). Once there's an email, switch it to
     mailto:you@yourdomain and bring back the email icons, which are
     commented out in the header and footer.
   - Photos: they live in the photos/ folder, sorted by category. Each
@@ -56,7 +59,7 @@
       </nav>
     </div>
 
-    <a class="btn btn--pill header-cta" href="https://ig.me/m/hi.studios.99">Book a shoot</a>
+    <a class="btn btn--pill header-cta" href="#book">Book a shoot</a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
       <span></span><span></span>
@@ -76,7 +79,7 @@
       <a href="#about">About</a>
     </nav>
     <div class="menu__bottom">
-      <a class="btn btn--pill" href="https://ig.me/m/hi.studios.99">Book a shoot</a>
+      <a class="btn btn--pill" href="#book">Book a shoot</a>
       <!-- script.js copies the header's social links in here -->
     </div>
   </dialog>
@@ -211,6 +214,25 @@
         <p>We’re Huntur and Ian — two friends who have always shared a passion for photography, videography, and creating something of our own. After years of talking about starting a business together, we decided to turn that passion into reality.</p>
         <p>For us, it’s about more than taking photos or videos. It’s about capturing real moments, telling stories, and creating something worth remembering.</p>
       </div>
+    </section>
+
+    <!-- Booking: Google Calendar appointment schedule ("Photography shoots").
+         Times, length and price are set in Google Calendar, not here.
+         The iframe is Google's embed URL (the booking page plus ?gv=true);
+         the new-tab link is the short share link. -->
+    <section class="booking" id="book" aria-labelledby="book-title">
+      <div class="booking__intro">
+        <h2 id="book-title">Book a shoot</h2>
+        <p>Pick a day and time that works for you. It goes straight onto our calendar, and you’ll get a confirmation by email.</p>
+      </div>
+      <div class="booking__frame">
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3SQbf9RMPJP07bi9Tjwh7Rswhjtx9XbGiPz5KG9QB1ExUokBiqXZcBB4xgxHifh1VtVCcCLjSh?gv=true" title="Booking calendar for HI STUDIOS photography shoots" loading="lazy"></iframe>
+      </div>
+      <p class="booking__alt">
+        <a href="https://calendar.app.google/vrkcKGNNTPXmetZX9" target="_blank" rel="noopener">Open the booking page in a new tab</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://ig.me/m/hi.studios.99">Questions? Message us on Instagram</a>
+      </p>
     </section>
   </main>
 

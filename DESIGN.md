@@ -69,6 +69,7 @@ None. The photography is the color. When a state needs emphasis, use an underlin
 * **Photo CTA button ("Contact me"):** For a call to action placed directly on a photograph. Darkroom Black fill, white text, `2px` Paper White keyline, nearly square corners (`5px`), about 154×60px
 * **Accordion (services list):** Sits inside a Frost Panel on a photo. Rows separated by Ink Rules top and bottom, Oxanium `1.38rem` titles, `15px` vertical padding, a thin chevron on the right that rotates 180° when open. An open row ends with a small uppercase "See photos" link to that category's gallery. No cards, no shadows
 * **Photo tiles:** Sharp corners (`0` radius). No borders, shadows or captions on the grid. A click opens a full-screen lightbox on Darkroom Black
+* **Booking embed:** The site's one form of booking. Google Calendar's booking page in a full-width iframe on Paper White, under an Oxanium heading and a one-sentence intro, set off from the section above by a full-width Ink Rule. Its height follows its own width: about `690px`, and `1150px` below `600px` wide, where Google stacks it into one column. Underneath, two text links: open the booking page in a new tab, and message on Instagram. The header's pill button scrolls here
 * **Circular portrait:** The one exception to sharp corners. `330px` circle on desktop, cropped to head and shoulders, on the About section only
 * **Video row:** A 16:9 embed on one side; a section heading and a one-sentence description on the other. The sides alternate row to row
 * **Previous / Next gallery nav:** At the end of every gallery. A small body-text label ("Previous" / "Next") above the Oxanium gallery name (`_AQUA`), aligned left and right
@@ -92,7 +93,7 @@ The first impression: four key photos, one at a time, full screen.
 - **Grid-first:** CSS Grid for every tile layout; no percentage math with `calc()`
 - **Section spacing:** `clamp(3rem, 8vw, 6rem)` between content sections. Photo sections sit one gutter apart
 - **Page templates:**
-  - *Home:* Carousel hero → services (full-bleed photo, frosted heading and accordion panels on the right, photo CTA below) → a strip of four portrait photos (3:4) → About (circular portrait left, heading and body right) → footer
+  - *Home:* Carousel hero → services (full-bleed photo, frosted heading and accordion panels on the right, photo CTA below) → a strip of four portrait photos (3:4) → About (circular portrait left, heading and body right) → Book a shoot (embedded booking page) → footer
   - *Gallery:* cover photo (about `66dvh`, rounded bottom) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
   - *Video:* Darkroom Black header band → alternating zig-zag video rows on white, about `90px` apart
   - *Client gallery (e.g. real estate):* full-bleed cover with a scrim → 3-column 4:3 grid → footer
