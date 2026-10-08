@@ -103,8 +103,8 @@ The first impression: four key photos, one at a time, full screen.
 - **Section spacing:** `clamp(3rem, 8vw, 6rem)` between content sections. Photo sections sit one gutter apart
 - **Page templates:**
   - *Home:* Top bar → carousel hero with the centered name → services (full-bleed photo, frosted heading and accordion panels on the right, contact card below) → a strip of four portrait photos (3:4) → page links (Behind the Lens, Book a shoot) → footer
-  - *Behind the Lens:* Top bar → black header band → page head → circular portrait left, body right → page links (What we shoot, Book a shoot) → footer
-  - *Book a shoot:* Top bar → black header band → page head with a one-sentence intro → booking embed → new-tab link and contact card → page links (What we shoot, Behind the Lens) → footer
+  - *Behind the Lens:* Top bar → black header band → page head → circular portrait left, body right → page links (Our Portfolio, Book a shoot) → footer
+  - *Book a shoot:* Top bar → black header band → page head with a one-sentence intro → booking embed → new-tab link and contact card → page links (Our Portfolio, Behind the Lens) → footer
   - *Gallery:* cover photo (about `66dvh`, rounded bottom) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
   - *Video:* Darkroom Black header band → alternating zig-zag video rows on white, about `90px` apart
   - *Client gallery (e.g. real estate):* full-bleed cover with a scrim → 3-column 4:3 grid → footer
