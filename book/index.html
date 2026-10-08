@@ -1,0 +1,161 @@
+<!doctype html>
+<!--
+  Book a shoot page: hi-studios.org/book/
+
+  It shares styles.css, script.js and the photos/ folder with the
+  homepage, one folder up, so paths here start with ../
+  The phone number and email are on every page: if either changes,
+  update index.html, about/index.html and book/index.html (on this page
+  they're in the top bar and the Contact us card).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a shoot | HI STUDIOS 518 Photography</title>
+  <meta name="description" content="Book a shoot with HI STUDIOS in New York’s 518 area. Pick a day and time on our calendar and you’ll get a confirmation by email.">
+  <link rel="canonical" href="https://hi-studios.org/book/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HI STUDIOS">
+  <meta property="og:title" content="Book a shoot | HI STUDIOS">
+  <meta property="og:description" content="Pick a day and time on our calendar and you’ll get a confirmation by email.">
+  <meta property="og:url" content="https://hi-studios.org/book/">
+  <meta property="og:image" content="https://hi-studios.org/photos/engagements/hug-kneeling.jpg">
+  <meta property="og:image:width" content="2000">
+  <meta property="og:image:height" content="1333">
+  <meta property="og:image:alt" content="A couple embracing on their knees in a field just after a proposal">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Crect x='7' y='22' width='18' height='3' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400&family=Geist:wght@400;700&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js" defer></script>
+</head>
+<body class="page-inner">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar">
+    <a href="tel:+15188885992">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span class="visually-hidden">Phone: </span>(518) 888-5992
+    </a>
+    <span class="topbar__sep" aria-hidden="true"></span>
+    <a href="mailto:ian@hi-studios.org">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      <span class="visually-hidden">Email: </span>ian@hi-studios.org
+    </a>
+  </div>
+
+  <header class="site-header">
+    <ul class="socials" aria-label="Social links">
+      <li>
+        <a class="social-chip" href="https://www.instagram.com/hi.studios.99/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <div class="brand">
+      <a class="wordmark" href="../">HI STUDIOS</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../#work">Work</a>
+        <a href="../#services">Services</a>
+        <a href="../about/">About</a>
+      </nav>
+    </div>
+
+    <a class="btn btn--pill header-cta" href="#calendar" aria-current="page">Book a shoot</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <dialog class="menu" id="menu" aria-label="Menu">
+    <div class="menu__top">
+      <a class="wordmark wordmark--small" href="../">HI STUDIOS</a>
+      <button class="icon-button menu__close" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+    </div>
+    <nav class="menu__nav" aria-label="Main">
+      <a href="../#work">Work</a>
+      <a href="../#services">Services</a>
+      <a href="../about/">About</a>
+    </nav>
+    <div class="menu__bottom">
+      <a class="btn btn--pill" href="#calendar" aria-current="page">Book a shoot</a>
+      <!-- script.js copies the header's social links in here -->
+    </div>
+  </dialog>
+
+  <main id="main">
+    <div class="page-head">
+      <h1>Book a shoot</h1>
+      <p>Pick a day and time that works for you. It goes straight onto our calendar, and you’ll get a confirmation by email.</p>
+    </div>
+
+    <!-- Booking: Google Calendar appointment schedule ("Photography shoots").
+         Times, length and price are set in Google Calendar, not here.
+         The iframe is Google's embed URL (the booking page plus ?gv=true);
+         the new-tab link is the short share link. -->
+    <section class="booking" id="calendar" aria-label="Booking calendar">
+      <div class="booking__frame">
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3SQbf9RMPJP07bi9Tjwh7Rswhjtx9XbGiPz5KG9QB1ExUokBiqXZcBB4xgxHifh1VtVCcCLjSh?gv=true" title="Booking calendar for HI STUDIOS photography shoots"></iframe>
+      </div>
+      <p class="booking__alt">
+        <a href="https://calendar.app.google/vrkcKGNNTPXmetZX9" target="_blank" rel="noopener">Open the booking page in a new tab</a>
+      </p>
+
+      <div class="contact-card">
+        <h2 class="contact-card__title">Questions? Contact us</h2>
+        <ul class="contact-card__list">
+          <li>
+            <a href="tel:+15188885992">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+              <span class="visually-hidden">Phone: </span>(518) 888-5992
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ian@hi-studios.org">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span class="visually-hidden">Email: </span>ian@hi-studios.org
+            </a>
+          </li>
+          <li>
+            <a href="https://ig.me/m/hi.studios.99">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+              Message us on Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="page-links" aria-label="More from HI STUDIOS">
+      <a class="page-link" href="../#services">
+        <span class="page-link__title">What we shoot</span>
+        <span class="page-link__text">Browse our photos by category</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </a>
+      <a class="page-link" href="../about/">
+        <span class="page-link__title">Behind the Lens</span>
+        <span class="page-link__text">Meet Huntur and Ian, the two friends behind HI STUDIOS</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <ul class="socials socials--footer" aria-label="Social links">
+      <li>
+        <a href="https://www.instagram.com/hi.studios.99/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p>© Copyright <span data-year>2026</span> | All rights reserved</p>
+  </footer>
+</body>
+</html>

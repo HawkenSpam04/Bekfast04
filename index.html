@@ -1,29 +1,77 @@
 <!doctype html>
 <!--
-  Homepage built from DESIGN.md.
+  Homepage built from DESIGN.md. The site has three pages, which share
+  styles.css, script.js and the photos/ folder:
+  - index.html: this page (hi-studios.org/)
+  - about/index.html: Behind the Lens (hi-studios.org/about/)
+  - book/index.html: Book a shoot (hi-studios.org/book/)
 
   To make it yours:
-  - Name: HI STUDIOS (title, wordmark, menu).
-  - Booking: "Book a shoot" scrolls to the booking section at the bottom,
-    which embeds the Google Calendar booking page. Change availability,
-    length or price in Google Calendar; nothing here needs editing.
-  - Contact: phone (518) 888-5992 and email ian@hi-studios.org appear in
-    two places: the bar at the very top and the "Contact us" card under
-    "What we shoot". Change both if either one changes. The card also
-    links to an Instagram message (ig.me/m/hi.studios.99).
+  - Name: HI STUDIOS (page titles, the name on the carousel, the menu, and
+    the wordmark in the other pages' headers).
+  - Search engines: each page's title and description are at the top of
+    its <head>. The full links there (canonical, og:url, og:image), the
+    data block below them, sitemap.xml and robots.txt all assume the site
+    lives at https://hi-studios.org/. Change them if it moves.
+  - Booking: "Book a shoot" opens the Book a shoot page, which embeds the
+    Google Calendar booking page. Change availability, length or price
+    in Google Calendar; nothing here needs editing.
+  - Contact: phone (518) 888-5992 and email ian@hi-studios.org are in the
+    bar at the top of every page, in the "Contact us" card under "What we
+    shoot", in the card on the Book a shoot page, and in the data block
+    below. Change them all if either one changes. The cards also link to
+    an Instagram message (ig.me/m/hi.studios.99).
   - Photos: they live in the photos/ folder, sorted by category. Each
     category's gallery list is at the top of script.js. The About photo
     is photos/about/hi-studios.jpg (a square crop).
   - Carousel: the 4 rotating photos at the top are in the hero section
-    below; each one's caption opens a gallery.
+    below; each one's caption opens a gallery. The name and "518
+    Photography" sit centered on top of them.
   - Text: the service descriptions are drafts to rewrite in your own words.
 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HI STUDIOS — Photo &amp; Film</title>
-  <meta name="description" content="Photography and video by HI STUDIOS.">
+  <title>HI STUDIOS | 518 Photography &amp; Video</title>
+  <meta name="description" content="HI STUDIOS is Huntur and Ian, shooting photo and video in New York’s 518 area: portraits, engagements, sports, fashion, automotive, aviation and more.">
+  <link rel="canonical" href="https://hi-studios.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HI STUDIOS">
+  <meta property="og:title" content="HI STUDIOS | 518 Photography">
+  <meta property="og:description" content="Huntur and Ian, shooting photo and video in New York’s 518 area: portraits, engagements, sports, fashion, automotive, aviation and more.">
+  <meta property="og:url" content="https://hi-studios.org/">
+  <meta property="og:image" content="https://hi-studios.org/photos/engagements/hug-kneeling.jpg">
+  <meta property="og:image:width" content="2000">
+  <meta property="og:image:height" content="1333">
+  <meta property="og:image:alt" content="A couple embracing on their knees in a field just after a proposal">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Tells search engines who HI STUDIOS is and how to reach you -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://hi-studios.org/#organization",
+        "name": "HI STUDIOS",
+        "url": "https://hi-studios.org/",
+        "description": "Photography and video by Huntur and Ian in New York’s 518 area.",
+        "email": "ian@hi-studios.org",
+        "telephone": "+1-518-888-5992",
+        "image": "https://hi-studios.org/photos/about/hi-studios.jpg",
+        "sameAs": ["https://www.instagram.com/hi.studios.99/"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hi-studios.org/#website",
+        "name": "HI STUDIOS",
+        "url": "https://hi-studios.org/",
+        "publisher": { "@id": "https://hi-studios.org/#organization" }
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Crect x='7' y='22' width='18' height='3' fill='%23fff'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,16 +103,16 @@
       </li>
     </ul>
 
+    <!-- No wordmark here on the homepage: the name is centered on the carousel -->
     <div class="brand">
-      <a class="wordmark" href="#top">HI STUDIOS</a>
       <nav class="site-nav" aria-label="Main">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
-        <a href="#about">About</a>
+        <a href="about/">About</a>
       </nav>
     </div>
 
-    <a class="btn btn--pill header-cta" href="#book">Book a shoot</a>
+    <a class="btn btn--pill header-cta" href="book/">Book a shoot</a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
       <span></span><span></span>
@@ -81,10 +129,10 @@
     <nav class="menu__nav" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
-      <a href="#about">About</a>
+      <a href="about/">About</a>
     </nav>
     <div class="menu__bottom">
-      <a class="btn btn--pill" href="#book">Book a shoot</a>
+      <a class="btn btn--pill" href="book/">Book a shoot</a>
       <!-- script.js copies the header's social links in here -->
     </div>
   </dialog>
@@ -94,7 +142,10 @@
          height, alt) and its caption: data-gallery is the gallery the
          caption opens, and the text after the underscore is its label. -->
     <section class="hero" id="top" aria-roledescription="carousel" aria-label="Featured work">
-      <h1 class="visually-hidden">HI STUDIOS, photography and film</h1>
+      <h1 class="hero__title">
+        <span class="hero__name">HI STUDIOS</span>
+        <span class="hero__tagline">518 Photography</span>
+      </h1>
 
       <div class="slides" aria-live="off">
         <figure class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
@@ -234,33 +285,19 @@
       </ul>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <img class="about__portrait" src="photos/about/hi-studios.jpg" alt="Huntur and Ian, the two friends behind HI STUDIOS, taking a mirror selfie" width="700" height="700" loading="lazy">
-      <div class="about__text">
-        <h2 id="about-title">Behind the Lens</h2>
-        <p>We’re Huntur and Ian — two friends who have always shared a passion for photography, videography, and creating something of our own. After years of talking about starting a business together, we decided to turn that passion into reality.</p>
-        <p>For us, it’s about more than taking photos or videos. It’s about capturing real moments, telling stories, and creating something worth remembering.</p>
-      </div>
-    </section>
-
-    <!-- Booking: Google Calendar appointment schedule ("Photography shoots").
-         Times, length and price are set in Google Calendar, not here.
-         The iframe is Google's embed URL (the booking page plus ?gv=true);
-         the new-tab link is the short share link. -->
-    <section class="booking" id="book" aria-labelledby="book-title">
-      <div class="booking__intro">
-        <h2 id="book-title">Book a shoot</h2>
-        <p>Pick a day and time that works for you. It goes straight onto our calendar, and you’ll get a confirmation by email.</p>
-      </div>
-      <div class="booking__frame">
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3SQbf9RMPJP07bi9Tjwh7Rswhjtx9XbGiPz5KG9QB1ExUokBiqXZcBB4xgxHifh1VtVCcCLjSh?gv=true" title="Booking calendar for HI STUDIOS photography shoots" loading="lazy"></iframe>
-      </div>
-      <p class="booking__alt">
-        <a href="https://calendar.app.google/vrkcKGNNTPXmetZX9" target="_blank" rel="noopener">Open the booking page in a new tab</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://ig.me/m/hi.studios.99">Questions? Message us on Instagram</a>
-      </p>
-    </section>
+    <!-- Links to the site's other pages -->
+    <nav class="page-links" aria-label="More from HI STUDIOS">
+      <a class="page-link" href="about/">
+        <span class="page-link__title">Behind the Lens</span>
+        <span class="page-link__text">Meet Huntur and Ian, the two friends behind HI STUDIOS</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </a>
+      <a class="page-link" href="book/">
+        <span class="page-link__title">Book a shoot</span>
+        <span class="page-link__text">Pick a day and time on our calendar</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+      </a>
+    </nav>
   </main>
 
   <footer class="site-footer">

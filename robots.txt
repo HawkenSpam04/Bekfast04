@@ -1,0 +1,5 @@
+# Lets every search engine crawl the whole site, and points them at the page list
+User-agent: *
+Allow: /
+
+Sitemap: https://hi-studios.org/sitemap.xml

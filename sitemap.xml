@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The site's pages, for search engines. Add a <url> here for every new page. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hi-studios.org/</loc></url>
+  <url><loc>https://hi-studios.org/about/</loc></url>
+  <url><loc>https://hi-studios.org/book/</loc></url>
+</urlset>
