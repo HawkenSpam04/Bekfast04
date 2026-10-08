@@ -146,6 +146,7 @@ h1, h2 {
 .topbar a:focus-visible { outline-offset: -4px; }
 .topbar svg { flex: none; width: 13px; height: 13px; }
 .topbar__sep { width: 1px; height: 12px; background: var(--track); }
+.topbar__emails { display: flex; align-items: center; gap: 0.35em; height: 100%; }
 
 /* Header: sits over the hero, under the top bar */
 .site-header {
@@ -581,6 +582,13 @@ h1, h2 {
 .contact-card__list a:hover { text-decoration: underline; }
 .contact-card__list svg { flex: none; width: 18px; height: 18px; }
 
+/* Both emails share a row ("ian@… or huntur@…"); on a narrow card the
+   second one wraps under the first, keeping its "or" */
+.contact-card__emails { display: flex; align-items: flex-start; gap: 0.75rem; }
+.contact-card__emails > svg { margin-top: 15px; }
+.contact-card__links { display: flex; flex-wrap: wrap; column-gap: 0.35em; }
+.contact-card__links > span { display: flex; align-items: center; gap: 0.35em; }
+
 /* Photo strip */
 .work { padding: var(--gutter) var(--grid-margin) 0; }
 
@@ -840,6 +848,23 @@ h1, h2 {
   .lightbox__prev, .lightbox__next { position: absolute; bottom: 0.75rem; }
   .lightbox__prev { left: 0.5rem; }
   .lightbox__next { right: 0.5rem; }
+}
+
+/* Narrow phones: the top bar's phone number and emails get a line each,
+   and the carousel title moves down to clear the taller bar */
+@media (max-width: 519px) {
+  :root { --topbar-h: 80px; }
+  .topbar { flex-wrap: wrap; align-content: center; row-gap: 0; }
+  .topbar__sep { display: none; }
+  .topbar > a,
+  .topbar__emails { height: 40px; }
+  .topbar__emails { flex-basis: 100%; justify-content: center; }
+  .hero__title { top: max(36%, 12.75rem); }
+}
+
+/* Very narrow phones: slightly smaller top bar text so both emails fit */
+@media (max-width: 359px) {
+  .topbar { font-size: 0.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
