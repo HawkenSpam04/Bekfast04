@@ -181,6 +181,16 @@ if (lightbox) {
   });
 }
 
+/* When the site is shown inside another page (the design preview embeds
+   it in a tall frame), a new page keeps the outer page's scroll position,
+   so a link clicked at the bottom lands at the bottom. Ask to start at
+   the top. A normal visit already starts there, so nothing happens. */
+if (window.self !== window.top) {
+  const toTop = () => document.documentElement.scrollIntoView({ block: 'start' });
+  toTop();
+  window.addEventListener('pageshow', toTop);
+}
+
 /* Phone menu */
 const menu = document.querySelector('.menu');
 const menuToggle = document.querySelector('.menu-toggle');
