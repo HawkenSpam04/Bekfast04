@@ -1,14 +1,14 @@
 /* Tokens from DESIGN.md */
 :root {
-  --black: #0A0A0A;
+  --black: #141414;
   --white: #FFFFFF;
   --index-white: rgba(255, 255, 255, 0.85);
   --scrim: rgba(10, 10, 10, 0.6);
   --shade: rgba(10, 10, 10, 0.55);
   --clear: rgba(10, 10, 10, 0);
   --track: rgba(255, 255, 255, 0.35);
-  --surface: #141414;              /* cards and placeholders, a step up from the page */
-  --placeholder: #161616;
+  --surface: #202020;              /* cards and placeholders, a step up from the page */
+  --placeholder: #1C1C1C;
   --hover-fill: #E8E8E8;
   --ink-soft: #A3A3A3;             /* body copy on black: true gray, softer than white */
   --rule: rgba(255, 255, 255, 0.14); /* hairlines */

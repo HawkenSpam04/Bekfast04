@@ -14,7 +14,7 @@
 | **Motion Intent** | `4` | A slow, crossfading hero carousel. No perpetual micro-loops: the photos are the motion |
 
 ### What differs from the reference
-- Pure black `#000000` → **Darkroom Black** `#0A0A0A` (looks the same, follows the skill's no-pure-black rule)
+- Pure black `#000000` → **Darkroom Black** `#141414` (looks the same, follows the skill's no-pure-black rule)
 - Body font "Interface" (an Adobe Fonts typeface) → **Geist**, which is free on Google Fonts
 - **Ash Gray** and **Geist Mono** are optional additions; the reference has neither
 - The reference's hero lists every category; here the hero is a **carousel of four key photos** and the categories are listed once, in the services section (the client's choice)
@@ -26,8 +26,8 @@
 A cinematic dark frame for full-color photography. Every page sits on Darkroom Black from top to bottom, with white type and one blue accent, so the work supplies every bit of color and reads like a gallery wall at night. Pages open on full-viewport dark media (a slow carousel of key photos) with white type laid straight over it; everything below the fold stays on the same black. A squared, technical display face gives the brand an expedition-gear feel, like the readout on a drone controller or a camera's top screen. Category names carry a leading underscore (`_MOUNTAINS`, `_AUTOMOTIVE`) and read like folder names on a memory card. Chrome is minimal, photos are big, gutters are thin. The overall impression: a field photographer's contact sheet, cleaned up for a gallery wall.
 
 ## 2. Color Palette & Roles
-- **Darkroom Black** (#0A0A0A) — The page, on every page: hero, header band, sections, lightbox backdrop
-- **Surface** (#141414) — Cards and image placeholders, one step up from the page
+- **Darkroom Black** (#141414) — The page, on every page: hero, header band, sections, lightbox backdrop
+- **Surface** (#202020) — Cards and image placeholders, one step up from the page
 - **Paper White** (#FFFFFF) — Headings, body text and icons; the booking embed's frame (Google's calendar is white)
 - **Index White** (rgba(255,255,255,0.85)) — Secondary white text on dark, such as the photo viewer's counter
 - **Track White** (rgba(255,255,255,0.35)) — The unfilled part of the carousel's progress bars
