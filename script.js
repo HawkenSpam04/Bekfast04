@@ -1,117 +1,8 @@
 'use strict';
 
-/* ── Your galleries ──────────────────────────────────────────────
-   Links on the homepage with data-gallery="name" (the carousel
-   captions and the "See photos" links) open that gallery full screen,
-   in this order. To add a photo, put it in the matching photos/
-   folder and list it here.
-   ───────────────────────────────────────────────────────────────── */
-const GALLERIES = {
-  architecture: [
-    'photos/architecture/ceiling.jpg',
-    'photos/architecture/window-ivy.jpg',
-  ],
-  automotive: [
-    'photos/automotive/bmw-front.jpg',
-  ],
-  aviation: [
-    'photos/aviation/taxiway-sign.jpg',
-    'photos/aviation/walk-sign.jpg',
-    'photos/aviation/window-wipe.jpg',
-    'photos/aviation/wing-windshield.jpg',
-    'photos/aviation/canopy-wipe.jpg',
-    'photos/aviation/underside-wipe.jpg',
-    'photos/aviation/towel-closeup.jpg',
-    'photos/aviation/pose-spray.jpg',
-    'photos/aviation/portrait-white-tee.jpg',
-    'photos/aviation/portrait-cap.jpg',
-  ],
-  engagements: [
-    'photos/engagements/proposal-surprise.jpg',
-    'photos/engagements/proposal-kneel.jpg',
-    'photos/engagements/hug-kneeling.jpg',
-    'photos/engagements/hug-film.jpg',
-    'photos/engagements/ring-pinky.jpg',
-    'photos/engagements/ring-hands.jpg',
-    'photos/engagements/couple-portrait.jpg',
-  ],
-  fashion: [
-    'photos/fashion/walk-away-reeds.jpg',
-    'photos/fashion/walk-toward-cap.jpg',
-    'photos/fashion/walk-glance.jpg',
-  ],
-  landscape: [
-    'photos/landscape/sunset-sun.jpg',
-    'photos/landscape/beach-panorama.jpg',
-    'photos/landscape/sunset-clouds.jpg',
-    'photos/landscape/marsh-boardwalk.jpg',
-    'photos/landscape/meadow-fog.jpg',
-  ],
-  macro: [
-    'photos/macro/fern-dark.jpg',
-    'photos/macro/fern-drops.jpg',
-    'photos/macro/fern-fronds.jpg',
-    'photos/macro/fern-stem.jpg',
-  ],
-  portraits: [
-    'photos/portraits/standing-reeds.jpg',
-    'photos/portraits/walk-toward.jpg',
-    'photos/portraits/golden-closeup.jpg',
-    'photos/portraits/golden-smile-river.jpg',
-    'photos/portraits/golden-serious.jpg',
-    'photos/portraits/golden-standing.jpg',
-    'photos/portraits/laugh-green.jpg',
-    'photos/portraits/friends-talking.jpg',
-    'photos/portraits/swimmers.jpg',
-    'photos/portraits/autumn-field.jpg',
-    'photos/portraits/field-from-behind.jpg',
-    'photos/portraits/field-look-back.jpg',
-    'photos/portraits/backpack-profile.jpg',
-    'photos/portraits/hand-grass.jpg',
-    'photos/portraits/flowers-wide.jpg',
-    'photos/portraits/flowers-pockets.jpg',
-    'photos/portraits/flowers-side.jpg',
-    'photos/portraits/flowers-closeup.jpg',
-    'photos/portraits/hair-flip-lake.jpg',
-    'photos/portraits/boardwalk-marsh-profile.jpg',
-    'photos/portraits/boardwalk-seated-down.jpg',
-    'photos/portraits/boardwalk-seated-close.jpg',
-    'photos/portraits/boardwalk-seated-bw.jpg',
-    'photos/portraits/head-back-smile.jpg',
-    'photos/portraits/head-back-profile.jpg',
-    'photos/portraits/over-shoulder-smile.jpg',
-    'photos/portraits/boardwalk-rail-smile.jpg',
-    'photos/portraits/sunlit-eyes-closed.jpg',
-    'photos/portraits/boardwalk-rail-sun.jpg',
-    'photos/portraits/tree-lean-pond.jpg',
-    'photos/portraits/profile-backlit.jpg',
-    'photos/portraits/hand-on-hip-profile.jpg',
-    'photos/portraits/foliage-profile.jpg',
-    'photos/portraits/trail-hands-on-hips.jpg',
-  ],
-  product: [
-    'photos/product/front-print-walk.jpg',
-    'photos/product/back-print-closeup.jpg',
-    'photos/product/front-print-detail.jpg',
-  ],
-  sports: [
-    'photos/sports/qb-run-color.jpg',
-    'photos/sports/number-2-back.jpg',
-    'photos/sports/line-of-scrimmage.jpg',
-    'photos/sports/number-14.jpg',
-    'photos/sports/number-24.jpg',
-    'photos/sports/number-13-run.jpg',
-    'photos/sports/team-line.jpg',
-    'photos/sports/three-under-lights.jpg',
-    'photos/sports/qb-run-bw.jpg',
-    'photos/sports/ball-carrier.jpg',
-    'photos/sports/qb-scramble.jpg',
-    'photos/sports/number-21-back.jpg',
-    'photos/sports/walk-to-line.jpg',
-    'photos/sports/collage-trio.jpg',
-    'photos/sports/collage-throw.jpg',
-  ],
-};
+/* The galleries are their own pages (portraits/, sports/, ...), written
+   by tools/build.py from tools/galleries.json. Photo tiles on any page
+   open in the viewer below. */
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -200,16 +91,28 @@ if (lightbox) {
 
   const pad = (n) => String(n).padStart(2, '0');
 
+  const peekPrev = lightbox.querySelector('.lightbox__peek--prev');
+  const peekNext = lightbox.querySelector('.lightbox__peek--next');
+  const progress = lightbox.querySelector('.lightbox__progress span');
+
   function renderLightbox() {
     const { photos, position, label } = viewer;
+    const total = photos.length;
     lightboxImg.classList.remove('is-loaded');
     lightboxImg.onload = () => lightboxImg.classList.add('is-loaded');
     lightboxImg.src = photos[position];
-    lightboxImg.alt = `${label} photo ${position + 1} of ${photos.length}`.trim();
-    lightboxCount.textContent = `${label} ${pad(position + 1)} / ${pad(photos.length)}`.trim();
-    lightbox.classList.toggle('is-single', photos.length < 2);
-    // Warm up the next photo so stepping through feels instant
-    new Image().src = photos[(position + 1) % photos.length];
+    lightboxImg.alt = `${label} photo ${position + 1} of ${total}`.trim();
+    lightboxCount.textContent = `${label} ${pad(position + 1)} / ${pad(total)}`.trim();
+    lightbox.classList.toggle('is-single', total < 2);
+    progress.style.transform = `scaleX(${(position + 1) / total})`;
+    // The neighbours peek in from the sides (and are loaded, so stepping feels instant)
+    if (total > 1) {
+      peekPrev.src = photos[(position - 1 + total) % total];
+      peekNext.src = photos[(position + 1) % total];
+    } else {
+      peekPrev.removeAttribute('src');
+      peekNext.removeAttribute('src');
+    }
   }
 
   function openLightbox(photos, position = 0, label = '') {
@@ -228,6 +131,8 @@ if (lightbox) {
   lightbox.querySelector('.lightbox__close').addEventListener('click', () => lightbox.close());
   lightbox.querySelector('.lightbox__prev').addEventListener('click', () => step(-1));
   lightbox.querySelector('.lightbox__next').addEventListener('click', () => step(1));
+  peekPrev.addEventListener('click', () => step(-1));
+  peekNext.addEventListener('click', () => step(1));
 
   lightbox.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') step(-1);
@@ -259,27 +164,31 @@ if (lightbox) {
 
   lightbox.addEventListener('close', () => {
     lightboxImg.removeAttribute('src');
+    peekPrev.removeAttribute('src');
+    peekNext.removeAttribute('src');
   });
 
-  // Carousel captions and the services "See photos" links open their gallery
-  function openGallery(event) {
-    const name = event.currentTarget.dataset.gallery;
-    const photos = GALLERIES[name];
-    if (!photos || !photos.length) return;
-    event.preventDefault();
-    openLightbox(photos, 0, `_${name.toUpperCase()}`);
-  }
-  for (const link of document.querySelectorAll('[data-gallery]')) link.addEventListener('click', openGallery);
-
-  // Photo strip tiles open in the same viewer
+  // Photo tiles (the homepage mosaic, or a gallery page) open in the viewer.
+  // A gallery page names itself with data-gallery-label on the list.
   const tiles = [...document.querySelectorAll('.tile')];
   const tilePhotos = tiles.map((tile) => tile.href);
+  const label = document.querySelector('[data-gallery-label]')?.dataset.galleryLabel ?? '_SELECTED';
   tiles.forEach((tile, position) => {
     tile.addEventListener('click', (event) => {
       event.preventDefault();
-      openLightbox(tilePhotos, position, '_SELECTED');
+      openLightbox(tilePhotos, position, label);
     });
   });
+}
+
+/* When the site is shown inside another page (the design preview embeds
+   it in a tall frame), a new page keeps the outer page's scroll position,
+   so a link clicked at the bottom lands at the bottom. Ask to start at
+   the top. A normal visit already starts there, so nothing happens. */
+if (window.self !== window.top) {
+  const toTop = () => document.documentElement.scrollIntoView({ block: 'start' });
+  toTop();
+  window.addEventListener('pageshow', toTop);
 }
 
 /* Phone menu */
@@ -301,8 +210,62 @@ matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
   if (event.matches && menu.open) menu.close();
 });
 
-/* Fade images in as they load, and reveal the strip on scroll */
-for (const img of document.querySelectorAll('.tile img, .services__bg, .about__portrait')) {
+/* Hero photos scroll a little slower than the page (parallax). Only while
+   the hero is on screen, and not for people who prefer reduced motion. */
+if (hero && !reduceMotion.matches) {
+  const slidesBox = hero.querySelector('.slides');
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const y = window.scrollY;
+    if (y < hero.offsetHeight) slidesBox.style.setProperty('--parallax', `${Math.round(y * 0.3)}px`);
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+}
+
+/* Sticky glass nav: once the header scrolls off the top, it comes back as a
+   slim frosted bar. On inner pages the header is in the page flow, so the
+   content keeps its place while the header is lifted out. */
+const header = document.querySelector('.site-header');
+if (header) {
+  let stuck = false;
+  let navTicking = false;
+  const threshold = () => header.offsetTop + header.offsetHeight;
+  let stickAt = threshold();
+  const updateNav = () => {
+    navTicking = false;
+    const shouldStick = window.scrollY > stickAt;
+    if (shouldStick === stuck) return;
+    stuck = shouldStick;
+    if (stuck) document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    header.classList.toggle('is-stuck', stuck);
+    document.documentElement.classList.toggle('has-stuck', stuck);
+  };
+  addEventListener('scroll', () => {
+    if (!navTicking) { navTicking = true; requestAnimationFrame(updateNav); }
+  }, { passive: true });
+  addEventListener('resize', () => { if (!stuck) stickAt = threshold(); });
+  updateNav();
+}
+
+/* Spotlight: the light on a photo tile follows the pointer */
+if (matchMedia('(hover: hover)').matches) {
+  for (const box of document.querySelectorAll('.mosaic, .categories')) {
+    box.addEventListener('pointermove', (event) => {
+      const tile = event.target.closest('.tile, .category');
+      if (!tile) return;
+      const rect = tile.getBoundingClientRect();
+      tile.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+      tile.style.setProperty('--my', `${event.clientY - rect.top}px`);
+    });
+  }
+}
+
+/* Fade images in as they load, and reveal sections on scroll */
+for (const img of document.querySelectorAll('.tile img, .category img, .about__portrait')) {
   if (img.complete) continue;
   img.classList.add('fade');
   img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
@@ -316,7 +279,7 @@ if (!reduceMotion.matches && 'IntersectionObserver' in window) {
       entry.target.classList.add('is-in');
       observer.unobserve(entry.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px' });
+  }, { rootMargin: '0px 0px -8% 0px' });
 
   for (const el of document.querySelectorAll('[data-reveal]')) {
     el.style.setProperty('--i', el.dataset.reveal);
