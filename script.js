@@ -42,7 +42,6 @@ const GALLERIES = {
   ],
   landscape: [
     'photos/landscape/sunset-sun.jpg',
-    'photos/landscape/beach-panorama.jpg',
     'photos/landscape/sunset-clouds.jpg',
     'photos/landscape/marsh-boardwalk.jpg',
     'photos/landscape/meadow-fog.jpg',
