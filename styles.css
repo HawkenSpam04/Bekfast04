@@ -879,6 +879,7 @@ html.has-stuck .page-inner main { padding-top: var(--header-h, 0px); }
   max-height: none;
   margin: 0;
   padding: 0;
+  overflow: hidden; /* the peeking photos hang past the edges; arrow keys must not scroll them into view */
   border: 0;
   background: var(--black);
   color: var(--white);
