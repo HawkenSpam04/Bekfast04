@@ -197,16 +197,28 @@ if (lightbox) {
 
   const pad = (n) => String(n).padStart(2, '0');
 
+  const peekPrev = lightbox.querySelector('.lightbox__peek--prev');
+  const peekNext = lightbox.querySelector('.lightbox__peek--next');
+  const progress = lightbox.querySelector('.lightbox__progress span');
+
   function renderLightbox() {
     const { photos, position, label } = viewer;
+    const total = photos.length;
     lightboxImg.classList.remove('is-loaded');
     lightboxImg.onload = () => lightboxImg.classList.add('is-loaded');
     lightboxImg.src = photos[position];
-    lightboxImg.alt = `${label} photo ${position + 1} of ${photos.length}`.trim();
-    lightboxCount.textContent = `${label} ${pad(position + 1)} / ${pad(photos.length)}`.trim();
-    lightbox.classList.toggle('is-single', photos.length < 2);
-    // Warm up the next photo so stepping through feels instant
-    new Image().src = photos[(position + 1) % photos.length];
+    lightboxImg.alt = `${label} photo ${position + 1} of ${total}`.trim();
+    lightboxCount.textContent = `${label} ${pad(position + 1)} / ${pad(total)}`.trim();
+    lightbox.classList.toggle('is-single', total < 2);
+    progress.style.transform = `scaleX(${(position + 1) / total})`;
+    // The neighbours peek in from the sides (and are loaded, so stepping feels instant)
+    if (total > 1) {
+      peekPrev.src = photos[(position - 1 + total) % total];
+      peekNext.src = photos[(position + 1) % total];
+    } else {
+      peekPrev.removeAttribute('src');
+      peekNext.removeAttribute('src');
+    }
   }
 
   function openLightbox(photos, position = 0, label = '') {
@@ -225,6 +237,8 @@ if (lightbox) {
   lightbox.querySelector('.lightbox__close').addEventListener('click', () => lightbox.close());
   lightbox.querySelector('.lightbox__prev').addEventListener('click', () => step(-1));
   lightbox.querySelector('.lightbox__next').addEventListener('click', () => step(1));
+  peekPrev.addEventListener('click', () => step(-1));
+  peekNext.addEventListener('click', () => step(1));
 
   lightbox.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') step(-1);
@@ -256,6 +270,8 @@ if (lightbox) {
 
   lightbox.addEventListener('close', () => {
     lightboxImg.removeAttribute('src');
+    peekPrev.removeAttribute('src');
+    peekNext.removeAttribute('src');
   });
 
   // Carousel captions and the services "See photos" links open their gallery
@@ -312,6 +328,44 @@ if (hero && !reduceMotion.matches) {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
   update();
+}
+
+/* Sticky glass nav: once the header scrolls off the top, it comes back as a
+   slim frosted bar. On inner pages the header is in the page flow, so the
+   content keeps its place while the header is lifted out. */
+const header = document.querySelector('.site-header');
+if (header) {
+  let stuck = false;
+  let navTicking = false;
+  const threshold = () => header.offsetTop + header.offsetHeight;
+  let stickAt = threshold();
+  const updateNav = () => {
+    navTicking = false;
+    const shouldStick = window.scrollY > stickAt;
+    if (shouldStick === stuck) return;
+    stuck = shouldStick;
+    if (stuck) document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    header.classList.toggle('is-stuck', stuck);
+    document.documentElement.classList.toggle('has-stuck', stuck);
+  };
+  addEventListener('scroll', () => {
+    if (!navTicking) { navTicking = true; requestAnimationFrame(updateNav); }
+  }, { passive: true });
+  addEventListener('resize', () => { if (!stuck) stickAt = threshold(); });
+  updateNav();
+}
+
+/* Spotlight: the light on a photo tile follows the pointer */
+if (matchMedia('(hover: hover)').matches) {
+  for (const box of document.querySelectorAll('.mosaic, .categories')) {
+    box.addEventListener('pointermove', (event) => {
+      const tile = event.target.closest('.tile, .category');
+      if (!tile) return;
+      const rect = tile.getBoundingClientRect();
+      tile.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+      tile.style.setProperty('--my', `${event.clientY - rect.top}px`);
+    });
+  }
 }
 
 /* Fade images in as they load, and reveal sections on scroll */

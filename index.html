@@ -113,8 +113,10 @@
       </li>
     </ul>
 
-    <!-- No wordmark here on the homepage: the name is centered on the carousel -->
+    <!-- The homepage wordmark only shows in the sticky bar once the carousel
+         scrolls away: on the carousel itself, the name is centered on the photos -->
     <div class="brand">
+      <a class="wordmark wordmark--stuck" href="#top">HI STUDIOS</a>
       <nav class="site-nav" aria-label="Main">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
@@ -386,10 +388,14 @@
     <button class="icon-button lightbox__prev" type="button" aria-label="Previous photo">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
     </button>
+    <!-- The previous and next photos peek in from the sides on wide screens -->
+    <img class="lightbox__peek lightbox__peek--prev" alt="" aria-hidden="true">
     <figure class="lightbox__stage">
       <img class="lightbox__img" alt="">
       <figcaption class="lightbox__count"></figcaption>
     </figure>
+    <img class="lightbox__peek lightbox__peek--next" alt="" aria-hidden="true">
+    <div class="lightbox__progress" aria-hidden="true"><span></span></div>
     <button class="icon-button lightbox__next" type="button" aria-label="Next photo">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
     </button>

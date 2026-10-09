@@ -75,6 +75,7 @@ A cinematic dark frame for full-color photography. Every page sits on Darkroom B
 * **Top bar:** A thin Darkroom Black band across the very top, `40px` tall (`44px` on phones), above the header. The phone, then the two emails (Ian's, then Huntur's) in `0.8125rem` body text, Index White, each with a `13px` line icon, centered on one line and split by short Track White rules. Below `560px` wide it becomes two `40px` lines, the phone over both emails (`80px` in all); below `360px`, each email gets a line of its own too (`120px`). Each number and address is a `tel:`/`mailto:` link that goes Paper White and underlined on hover. It scrolls away with the page
 * **Header (over dark media):** Transparent, one row with three zones: social chips on the left, the nav in the center, primary button on the right. About `2.5rem` top padding. All white, sitting on whatever media is behind it. On the homepage the wordmark is left out, since the name is centered on the carousel below
 * **Header (inner pages):** The same three zones, with the wordmark back above the nav, linking home. The current page's nav link keeps its underline
+* **Sticky glass bar:** Once the header scrolls off the top of the window it comes back as a slim fixed bar: Darkroom Black at 72% with `blur(18px)`, a Hairline underneath, the wordmark (`1.125rem`) beside the nav, a `36px` social chip and a `40px` pill. It slides down from above over 400ms. On phones it is the wordmark and the menu icon
 * **Page head (inner pages):** Under the header, the page's display title centered on a Blue Glow, with an optional one-sentence intro in Soft Ink under it (`52ch` max)
 * **Social chips:** `44px` outline circles (1px white at 40%) holding `16px` white glyphs; on hover they fill Paper White with a black glyph, `10px` apart. In the footer they invert to bare black glyphs (`22px`), centered
 * **Nav links:** UPPERCASE body text, about `0.6em` apart. Hover and keyboard focus: a `1px` underline in `currentColor`, `2px` below the text, draws in from the left (`scaleX` 0 → 1)
@@ -90,7 +91,7 @@ A cinematic dark frame for full-color photography. Every page sits on Darkroom B
 * **Video row:** A 16:9 embed on one side; a section heading and a one-sentence description on the other. The sides alternate row to row
 * **Previous / Next gallery nav:** At the end of every gallery. A small body-text label ("Previous" / "Next") above the Oxanium gallery name (`_AQUA`), aligned left and right
 * **Footer:** Centered under a Hairline: a white social glyph, then `© COPYRIGHT {YEAR} | ALL RIGHTS RESERVED` in small (`0.75rem`) tracked UPPERCASE Soft Ink. Nothing else
-* **Section head:** Above the homepage photo strip: an eyebrow ("Recent shoots") over an Oxanium heading ("Selected work") on the left, and a small uppercase "All categories" link with an arrow on the right
+* **Section head:** Above each homepage section: an eyebrow ("Recent shoots") over a display heading ("Selected work") on the left, and a one-line intro or a small uppercase arrow link on the right. A Blue Glow sits behind the heading, like the inner-page titles
 * **Loaders:** Image placeholders in Surface at the image's exact aspect ratio; the photo fades in over them. No spinners
 * **Forms (contact page):** Label above the field, a `1px` Ink Rule bottom border only, error text below. Submit uses the primary button
 
@@ -134,9 +135,9 @@ Restrained and photographic: dissolves, not bounces.
 - **Hero intro:** On load the name rises `28px` and fades in over 1.1s, the tagline 180ms behind it; the header, caption and controls fade in after 400ms
 - **Hero parallax:** As the page scrolls, the hero photos move at 0.3× the scroll distance (a `translate3d` on the slides, set by script on `requestAnimationFrame`), only while the hero is on screen
 - **Scroll reveal:** Section heads, tiles, mosaic items and page links fade up `24px` the first time they enter the viewport, staggered 80ms per item, once only
-- **Tile hover:** `scale(1.04)` inside an `overflow: hidden` frame over 900ms. Category tiles also unfold their one-line description
+- **Tile hover:** `scale(1.04)` inside an `overflow: hidden` frame over 900ms, plus a spotlight: a soft white radial light (`260px`) that follows the pointer across the tile and a 1px Sky Blue inner edge, on hover-capable devices only. Category tiles also unfold their one-line description
 - **Buttons:** Spring press (stiffness 100, damping 20) to `scale(0.98)`
-- **Lightbox:** Fade plus `scale(0.98 → 1)` over 300ms; arrow keys and swipe to move between photos
+- **Lightbox:** Fade plus `scale(0.98 → 1)` over 300ms; each photo also eases in from `0.98`. On wide screens the previous and next photos peek in from the edges (`16vw`, dimmed to 45%, rounded) and a click on one steps to it; a thin Sky Blue progress bar under the photo shows the position in the gallery. Arrow keys and swipe move between photos
 - **Carousel:** Pauses while the browser tab is hidden. Under `prefers-reduced-motion: reduce`, it starts paused, with no zoom, instant crossfades, no parallax and no intro animation
 - **Video (if a reel is added):** `muted`, `loop`, `playsinline`, with a poster image. Under `prefers-reduced-motion: reduce`, show the poster only
 - Animate only `transform` and `opacity`
