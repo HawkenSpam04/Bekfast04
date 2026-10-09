@@ -35,6 +35,8 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 - **Frost Panel** (rgba(255,255,255,0.45)) — Translucent panel behind text blocks placed over a photograph (services accordion). Over dark or moody photos raise it to 0.7, or it reads as a grey box
 - **Haze Panel** (rgba(240,240,240,0.19)) — Lighter tint behind a single heading, only over a bright part of a photograph. Anywhere darker, use the Frost Panel so dark text stays readable
 - **Ink Rule** (#0A0A0A, 1px) — Dividers between accordion rows and list items on light or frosted surfaces
+- **Soft Ink** (#4A4A4A) — Body copy on white (About text, page-link descriptions, accordion descriptions, footer), so headings carry the contrast
+- **Hairline** (rgba(10,10,10,0.14) on light, rgba(255,255,255,0.14) on dark) — Dividers between list rows, page links and the footer. Replaces solid Ink Rules for a lighter, cleaner page
 - **Ash Gray** (#8A8A8A) — *Optional.* Captions, metadata, disabled states. Use sparingly
 
 ### Accent
@@ -54,9 +56,10 @@ None. The photography is the color. When a state needs emphasis, use an underlin
   - Carousel captions: `clamp(1.5rem, 2.4vw, 2.25rem)` (36px at 1440px), UPPERCASE, leading underscore, a small trailing arrow
   - Section headings: `clamp(2.25rem, 3.5vw, 3.25rem)`, line-height `1.2`. Sentence case or even lowercase ("who am I?") is welcome; the casual voice plays against the technical face
   - Sub-headings and accordion titles: `1.38rem` (22px), line-height `1.35`
-- **Body: `Geist` 400** — `1.17rem` (18.7px), line-height `1.6`, tracking `0.01em`, max-width `65ch`, left-aligned
-- **Navigation:** body font, UPPERCASE, `1.17rem`, tracking `0.01em`, regular weight
-- **Buttons:** body font 700, UPPERCASE, `0.96rem` (15.4px), tracking `0.08em`
+- **Body: `Geist` 400** — `1.0625rem` (17px), line-height `1.65`, no extra tracking, max-width `65ch`, left-aligned
+- **Navigation:** body font 700, UPPERCASE, `0.8125rem`, tracking `0.14em`, links `clamp(1.5rem, 3vw, 2.5rem)` apart
+- **Buttons:** body font 700, UPPERCASE, `0.8125rem`, tracking `0.14em`
+- **Eyebrow labels:** body font 700, UPPERCASE, `0.75rem`, tracking `0.2em`, 60% opacity, above section headings and as the contact card's label
 - **Mono (optional): `Geist Mono`** `0.8125rem` — Camera metadata captions only, e.g. `f/2.8 · 1/500s · ISO 200`
 - **Loading:** `https://fonts.googleapis.com/css2?family=Oxanium:wght@400&family=Geist:wght@400;700&family=Geist+Mono&display=swap`
 
@@ -69,19 +72,20 @@ None. The photography is the color. When a state needs emphasis, use an underlin
 * **Header (over dark media):** Transparent, one row with three zones: social chips on the left, the nav in the center, primary button on the right. About `2.5rem` top padding. All white, sitting on whatever media is behind it. On the homepage the wordmark is left out, since the name is centered on the carousel below
 * **Header (inner pages):** The same three zones on a solid Darkroom Black band, with the wordmark back above the nav, linking home. The current page's nav link keeps its underline
 * **Page head (inner pages):** The black band carries on under the header and holds the page's Oxanium title, centered, with an optional one-sentence intro in Index White under it (`56ch` max). `40px` rounded bottom corners, like the services backdrop
-* **Social chips:** `36px` Paper White circles holding `14px` Darkroom Black glyphs, `10px` apart. In the footer they invert to bare black glyphs (`22px`), centered
+* **Social chips:** `44px` outline circles (1px white at 40%) holding `16px` white glyphs; on hover they fill Paper White with a black glyph, `10px` apart. In the footer they invert to bare black glyphs (`22px`), centered
 * **Nav links:** UPPERCASE body text, about `0.6em` apart. Hover and keyboard focus: a `1px` underline in `currentColor`, `2px` below the text, draws in from the left (`scaleX` 0 → 1)
 * **Carousel controls:** Bottom right of the hero. One thin `2px` bar per photo in Track White inside a `44px`-tall button; the active bar fills with Paper White over the slide's display time. A pause/play icon button sits after the bars. No arrows, no numbered dots
 * **Primary button ("Hire me"):** Full pill (`border-radius: 9999px`), Paper White fill, Darkroom Black text, padding `18px 31px` (about 126×56px). No border, no shadow. Hover: fill shifts to `#E8E8E8`. Active: `scale(0.98)`. On light surfaces, invert to a black pill with white text
-* **Contact card ("Contact us"):** The photo CTA style opened up into a short list, under the services accordion, and centered under the calendar on the booking page. Darkroom Black fill, `2px` Paper White keyline, `5px` corners, full panel width. An uppercase bold "CONTACT US" label, then one row each for the phone, Ian's email, Huntur's email and the Instagram message: an `18px` line icon and body text, at least `48px` tall, split by Track White rules
-* **Accordion (services list):** Sits inside a Frost Panel on a photo. Rows separated by Ink Rules top and bottom, Oxanium `1.38rem` titles, `15px` vertical padding, a thin chevron on the right that rotates 180° when open. An open row ends with a small uppercase "See photos" link to that category's gallery. No cards, no shadows
+* **Contact card ("Contact us"):** The photo CTA style opened up into a short list, under the services accordion, and centered under the calendar on the booking page. Darkroom Black at 88% with a background blur, a 1px Hairline border, `20px` corners, full panel width. An eyebrow "CONTACT US" label, then one row each for the phone, Ian's email, Huntur's email and the Instagram message: an `18px` line icon and body text, at least `48px` tall, split by Track White rules
+* **Accordion (services list):** Sits in one Frost Panel card (`20px` corners, `blur(20px)`) together with the "Our Portfolio" heading, which is left-aligned at the top of the card. Rows separated by Hairlines, Oxanium `1.25rem` titles, `15px` vertical padding, a thin chevron on the right that rotates 180° when open. An open row ends with a small uppercase "See photos" link to that category's gallery. No cards, no shadows
 * **Photo tiles:** Sharp corners (`0` radius). No borders, shadows or captions on the grid. A click opens a full-screen lightbox on Darkroom Black
 * **Booking embed:** The site's one form of booking, on a page of its own (Book a shoot) under the page head. Google Calendar's booking page in a full-width iframe on Paper White. Its height follows its own width: about `690px`, and `1150px` below `600px` wide, where Google stacks it into one column. Underneath, centered to match Google's centered calendar: a text link to open the booking page in a new tab, then the contact card. The header's pill button links to this page
 * **Page links:** At the end of every page, two links to the site's other pages, side by side (stacked on phones). Each is an Oxanium title (`clamp(1.75rem, 2.8vw, 2.5rem)`), a one-line body description (`1rem`) and a small arrow on the right, between Ink Rules. Hover: the title underlines and the arrow nudges right
 * **Circular portrait:** The one exception to sharp corners. `330px` circle on desktop, cropped to head and shoulders, on the Behind the Lens page only
 * **Video row:** A 16:9 embed on one side; a section heading and a one-sentence description on the other. The sides alternate row to row
 * **Previous / Next gallery nav:** At the end of every gallery. A small body-text label ("Previous" / "Next") above the Oxanium gallery name (`_AQUA`), aligned left and right
-* **Footer:** White and centered: social glyphs, then `© COPYRIGHT {YEAR} | ALL RIGHTS RESERVED` in UPPERCASE body text. Nothing else
+* **Footer:** White and centered under a Hairline: social glyphs, then `© COPYRIGHT {YEAR} | ALL RIGHTS RESERVED` in small (`0.75rem`) tracked UPPERCASE Soft Ink. Nothing else
+* **Section head:** Above the homepage photo strip: an eyebrow ("Recent shoots") over an Oxanium heading ("Selected work") on the left, and a small uppercase "All categories" link with an arrow on the right
 * **Loaders:** Image placeholders in `#F2F2F2` (or Darkroom Black on dark sections) at the image's exact aspect ratio; the photo fades in over them. No spinners
 * **Forms (contact page):** Label above the field, a `1px` Ink Rule bottom border only, error text below. Submit uses the primary button
 
@@ -102,7 +106,7 @@ The first impression: four key photos, one at a time, full screen.
 - **Grid-first:** CSS Grid for every tile layout; no percentage math with `calc()`
 - **Section spacing:** `clamp(3rem, 8vw, 6rem)` between content sections. Photo sections sit one gutter apart
 - **Page templates:**
-  - *Home:* Top bar → carousel hero with the centered name → services (full-bleed photo, frosted heading and accordion panels on the right, contact card below) → a strip of four portrait photos (3:4) → page links (Behind the Lens, Book a shoot) → footer
+  - *Home:* Top bar → carousel hero with the centered name → services (full-bleed photo, frosted heading and accordion panels on the right, contact card below) → a "Selected work" section head and a strip of four portrait photos (3:4) → page links (Behind the Lens, Book a shoot) → footer
   - *Behind the Lens:* Top bar → black header band → page head → circular portrait left, body right → page links (Our Portfolio, Book a shoot) → footer
   - *Book a shoot:* Top bar → black header band → page head with a one-sentence intro → booking embed → new-tab link and contact card → page links (Our Portfolio, Behind the Lens) → footer
   - *Gallery:* cover photo (about `66dvh`, rounded bottom) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
