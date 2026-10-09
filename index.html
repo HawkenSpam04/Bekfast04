@@ -26,7 +26,8 @@
     category's gallery list is at the top of script.js. The About photo
     is photos/about/hi-studios.jpg (a square crop).
   - Carousel: the 4 rotating photos at the top are in the hero section
-    below; each one's caption opens a gallery. The name and "518
+    below; each one's caption opens a gallery. The category tiles and the
+    "Selected work" mosaic further down say in a comment how to swap photos. The name and "518
     Photography" sit centered on top of them.
   - Text: the service descriptions are drafts to rewrite in your own words.
 -->
@@ -197,114 +198,162 @@
     </section>
 
     <section class="services" id="services" aria-labelledby="services-title">
-      <!-- On desktop the panels cover the right side, so pick a photo
-           whose subject sits left of center. -->
-      <img class="services__bg" src="photos/landscape/beach-panorama.jpg" alt="" width="2576" height="1052" loading="lazy">
-      <div class="services__inner">
-        <div class="services__panel">
-          <h2 class="services__title" id="services-title">Our Portfolio</h2>
-          <!-- Draft descriptions: rewrite them in your own words.
-               Each "See photos" link opens the gallery named in data-gallery. -->
-          <div class="accordion">
-            <details>
-              <summary>Architecture<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Interiors and buildings, from grand halls to small rooms, shot to show both the detail and the scale.</p>
-              <a class="accordion__link" href="#work" data-gallery="architecture">See photos</a>
-            </details>
-            <details>
-              <summary>Automotive<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Cars shot on location, with the angles and light that show off the paint, the lines and the details.</p>
-              <a class="accordion__link" href="#work" data-gallery="automotive">See photos</a>
-            </details>
-            <details>
-              <summary>Aviation<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Planes on the ramp: detailing in action, close-up details and portraits with the aircraft.</p>
-              <a class="accordion__link" href="#work" data-gallery="aviation">See photos</a>
-            </details>
-            <details>
-              <summary>Engagements<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Proposals and engagement sessions: the moment itself, the ring, and relaxed portraits of the two of you afterwards.</p>
-              <a class="accordion__link" href="#work" data-gallery="engagements">See photos</a>
-            </details>
-            <details>
-              <summary>Fashion<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Lookbooks and campaign shoots for clothing brands, on location in natural light.</p>
-              <a class="accordion__link" href="#work" data-gallery="fashion">See photos</a>
-            </details>
-            <details>
-              <summary>Landscape<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Coastlines, wetlands and wide-open skies, from golden sunsets to quiet overcast days.</p>
-              <a class="accordion__link" href="#work" data-gallery="landscape">See photos</a>
-            </details>
-            <details>
-              <summary>Macro<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Close-ups of the small things: rain beading on ferns, leaf textures and details you'd walk right past.</p>
-              <a class="accordion__link" href="#work" data-gallery="macro">See photos</a>
-            </details>
-            <details>
-              <summary>Portraits<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Relaxed, natural portraits outdoors, from golden-hour light to foggy autumn fields.</p>
-              <a class="accordion__link" href="#work" data-gallery="portraits">See photos</a>
-            </details>
-            <details>
-              <summary>Product<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Clean close-ups of products, prints and logos, ready for a website or a feed.</p>
-              <a class="accordion__link" href="#work" data-gallery="product">See photos</a>
-            </details>
-            <details>
-              <summary>Sports<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg></summary>
-              <p>Games shot from the sideline under the lights, from the big plays to the moments in between, plus player portraits.</p>
-              <a class="accordion__link" href="#work" data-gallery="sports">See photos</a>
-            </details>
-          </div>
-          <div class="contact-card" id="contact">
-            <h3 class="contact-card__title">Contact us</h3>
-            <ul class="contact-card__list">
-              <li>
-                <a href="tel:+15188885992">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-                  <span class="visually-hidden">Phone: </span>(518) 888-5992
-                </a>
-              </li>
-              <li>
-                <a href="mailto:ian@hi-studios.org">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                  <span class="visually-hidden">Email: </span>ian@hi-studios.org
-                </a>
-              </li>
-              <li>
-                <a href="mailto:huntur@hi-studios.org">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                  <span class="visually-hidden">Email: </span>huntur@hi-studios.org
-                </a>
-              </li>
-              <li>
-                <a href="https://ig.me/m/hi.studios.99">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-                  Message us on Instagram
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="section-head" data-reveal="0">
+        <h2 id="services-title"><span class="eyebrow">Ten kinds of work</span>Our Portfolio</h2>
+        <p class="section-head__text">Everything shot on location in New York’s 518 area. Pick a category to open its gallery.</p>
+      </div>
+      <!-- One cover photo per category. To swap one, change its img (src,
+           width, height). The link opens the gallery named in data-gallery
+           (the lists are at the top of script.js). -->
+      <ul class="categories">
+        <li data-reveal="0">
+          <a class="category" href="#work" data-gallery="architecture">
+            <img src="photos/architecture/window-ivy.jpg" alt="" width="1126" height="2000" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Architecture</span>
+              <span class="category__text">Interiors and buildings, from grand halls to small rooms.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="1">
+          <a class="category" href="#work" data-gallery="automotive">
+            <img src="photos/automotive/bmw-front.jpg" alt="" width="1500" height="2000" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Automotive</span>
+              <span class="category__text">Cars on location, lit to show off the paint and the lines.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="2">
+          <a class="category" href="#work" data-gallery="aviation">
+            <img src="photos/aviation/walk-sign.jpg" alt="" width="1600" height="2000" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Aviation</span>
+              <span class="category__text">Planes on the ramp, detailing in action and portraits with the aircraft.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="3">
+          <a class="category" href="#work" data-gallery="engagements">
+            <img src="photos/engagements/proposal-kneel.jpg" alt="" width="2000" height="1333" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Engagements</span>
+              <span class="category__text">Proposals and engagement sessions: the moment, the ring, the two of you.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="4">
+          <a class="category" href="#work" data-gallery="fashion">
+            <img src="photos/fashion/walk-toward-cap.jpg" alt="" width="2000" height="1333" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Fashion</span>
+              <span class="category__text">Lookbooks and campaign shoots in natural light.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="0">
+          <a class="category" href="#work" data-gallery="landscape">
+            <img src="photos/landscape/sunset-sun.jpg" alt="" width="2000" height="1333" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Landscape</span>
+              <span class="category__text">Coastlines, wetlands and wide-open skies.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="1">
+          <a class="category" href="#work" data-gallery="macro">
+            <img src="photos/macro/fern-drops.jpg" alt="" width="2000" height="1333" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Macro</span>
+              <span class="category__text">Close-ups of the small things you would walk right past.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="2">
+          <a class="category" href="#work" data-gallery="portraits">
+            <img src="photos/portraits/tree-lean-pond.jpg" alt="" width="1080" height="1620" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Portraits</span>
+              <span class="category__text">Relaxed, natural portraits outdoors.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="3">
+          <a class="category" href="#work" data-gallery="product">
+            <img src="photos/product/front-print-detail.jpg" alt="" width="2000" height="1333" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Product</span>
+              <span class="category__text">Clean close-ups of products, prints and logos.</span>
+            </span>
+          </a>
+        </li>
+        <li data-reveal="4">
+          <a class="category" href="#work" data-gallery="sports">
+            <img src="photos/sports/number-13-run.jpg" alt="" width="1633" height="2047" loading="lazy">
+            <span class="category__body">
+              <span class="category__name">Sports</span>
+              <span class="category__text">Games from the sideline under the lights, plus player portraits.</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <div class="contact-card contact-card--band" id="contact" data-reveal="0">
+        <h3 class="contact-card__title">Contact us</h3>
+        <ul class="contact-card__list">
+          <li>
+            <a href="tel:+15188885992">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+              <span class="visually-hidden">Phone: </span>(518) 888-5992
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ian@hi-studios.org">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span class="visually-hidden">Email: </span>ian@hi-studios.org
+            </a>
+          </li>
+          <li>
+            <a href="mailto:huntur@hi-studios.org">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span class="visually-hidden">Email: </span>huntur@hi-studios.org
+            </a>
+          </li>
+          <li>
+            <a href="https://ig.me/m/hi.studios.99">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+              Message us on Instagram
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="work" id="work" aria-labelledby="work-title">
-      <div class="section-head">
+      <div class="section-head" data-reveal="0">
         <h2 id="work-title"><span class="eyebrow">Recent shoots</span>Selected work</h2>
         <a class="section-head__link" href="#services">All categories<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
       </div>
-      <ul class="strip">
-        <li data-reveal="0"><a class="tile" href="photos/engagements/couple-portrait.jpg"><img src="photos/engagements/couple-portrait.jpg" alt="Engaged couple smiling together in a field of tall grass" width="2000" height="1333" loading="lazy"></a></li>
-        <li data-reveal="1"><a class="tile" href="photos/product/back-print-closeup.jpg"><img src="photos/product/back-print-closeup.jpg" alt="Back of a white tee with a black S-curve print" width="2000" height="1333" loading="lazy"></a></li>
-        <li data-reveal="2"><a class="tile" href="photos/portraits/golden-closeup.jpg"><img src="photos/portraits/golden-closeup.jpg" alt="Smiling young man with curly blond hair at golden hour" width="2000" height="1333" loading="lazy"></a></li>
-        <li data-reveal="3"><a class="tile" href="photos/aviation/window-wipe.jpg"><img src="photos/aviation/window-wipe.jpg" alt="Person in sunglasses wiping down the window of a blue and red light aircraft" width="2000" height="1333" loading="lazy"></a></li>
+      <!-- Mixed-size mosaic. Sizes: mosaic__item--big (2x2), --wide (2x1),
+           --tall (1x2), or none (1x1). Any photo opens in the viewer. -->
+      <ul class="mosaic">
+        <li class="mosaic__item mosaic__item--big" data-reveal="0"><a class="tile" href="photos/engagements/couple-portrait.jpg"><img src="photos/engagements/couple-portrait.jpg" alt="Engaged couple smiling together in a field of tall grass" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item mosaic__item--wide" data-reveal="1"><a class="tile" href="photos/landscape/sunset-clouds.jpg"><img src="photos/landscape/sunset-clouds.jpg" alt="Sunset over the water with streaks of pink cloud" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item mosaic__item--tall" data-reveal="2"><a class="tile" href="photos/sports/ball-carrier.jpg"><img src="photos/sports/ball-carrier.jpg" alt="Football player carrying the ball under stadium lights" width="1313" height="2047" loading="lazy"></a></li>
+        <li class="mosaic__item" data-reveal="3"><a class="tile" href="photos/macro/fern-fronds.jpg"><img src="photos/macro/fern-fronds.jpg" alt="Close-up of fern fronds" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item mosaic__item--wide" data-reveal="0"><a class="tile" href="photos/product/back-print-closeup.jpg"><img src="photos/product/back-print-closeup.jpg" alt="Back of a white tee with a black S-curve print" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item" data-reveal="1"><a class="tile" href="photos/portraits/golden-closeup.jpg"><img src="photos/portraits/golden-closeup.jpg" alt="Smiling young man with curly blond hair at golden hour" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item mosaic__item--wide" data-reveal="2"><a class="tile" href="photos/aviation/window-wipe.jpg"><img src="photos/aviation/window-wipe.jpg" alt="Person in sunglasses wiping down the window of a blue and red light aircraft" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item mosaic__item--tall" data-reveal="3"><a class="tile" href="photos/architecture/ceiling.jpg"><img src="photos/architecture/ceiling.jpg" alt="Ornate ceiling of octagonal stained-glass panels" width="1500" height="2000" loading="lazy"></a></li>
+        <li class="mosaic__item mosaic__item--big" data-reveal="0"><a class="tile" href="photos/fashion/walk-glance.jpg"><img src="photos/fashion/walk-glance.jpg" alt="Model in a cap glancing back on a grassy path" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item" data-reveal="1"><a class="tile" href="photos/portraits/laugh-green.jpg"><img src="photos/portraits/laugh-green.jpg" alt="Young woman laughing in front of green foliage" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item" data-reveal="2"><a class="tile" href="photos/engagements/ring-hands.jpg"><img src="photos/engagements/ring-hands.jpg" alt="Close-up of two hands and an engagement ring" width="2000" height="1333" loading="lazy"></a></li>
+        <li class="mosaic__item" data-reveal="3"><a class="tile" href="photos/automotive/bmw-front.jpg"><img src="photos/automotive/bmw-front.jpg" alt="Front of a dark green BMW on a driveway" width="1500" height="2000" loading="lazy"></a></li>
+        <li class="mosaic__item" data-reveal="0"><a class="tile" href="photos/portraits/sunlit-eyes-closed.jpg"><img src="photos/portraits/sunlit-eyes-closed.jpg" alt="Young woman with her eyes closed in warm sunlight" width="1620" height="1080" loading="lazy"></a></li>
       </ul>
     </section>
 
     <!-- Links to the site's other pages -->
-    <nav class="page-links" aria-label="More from HI STUDIOS">
+    <nav class="page-links" aria-label="More from HI STUDIOS" data-reveal="0">
       <a class="page-link" href="about/">
         <span class="page-link__title">Behind the Lens</span>
         <span class="page-link__text">Meet Huntur and Ian, the two friends behind HI STUDIOS</span>

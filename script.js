@@ -271,7 +271,7 @@ if (lightbox) {
   }
   for (const link of document.querySelectorAll('[data-gallery]')) link.addEventListener('click', openGallery);
 
-  // Photo strip tiles open in the same viewer
+  // Mosaic tiles open in the same viewer
   const tiles = [...document.querySelectorAll('.tile')];
   const tilePhotos = tiles.map((tile) => tile.href);
   tiles.forEach((tile, position) => {
@@ -301,8 +301,24 @@ matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
   if (event.matches && menu.open) menu.close();
 });
 
-/* Fade images in as they load, and reveal the strip on scroll */
-for (const img of document.querySelectorAll('.tile img, .services__bg, .about__portrait')) {
+/* Hero photos scroll a little slower than the page (parallax). Only while
+   the hero is on screen, and not for people who prefer reduced motion. */
+if (hero && !reduceMotion.matches) {
+  const slidesBox = hero.querySelector('.slides');
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const y = window.scrollY;
+    if (y < hero.offsetHeight) slidesBox.style.setProperty('--parallax', `${Math.round(y * 0.3)}px`);
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+}
+
+/* Fade images in as they load, and reveal sections on scroll */
+for (const img of document.querySelectorAll('.tile img, .category img, .about__portrait')) {
   if (img.complete) continue;
   img.classList.add('fade');
   img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
@@ -316,7 +332,7 @@ if (!reduceMotion.matches && 'IntersectionObserver' in window) {
       entry.target.classList.add('is-in');
       observer.unobserve(entry.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px' });
+  }, { rootMargin: '0px 0px -8% 0px' });
 
   for (const el of document.querySelectorAll('[data-reveal]')) {
     el.style.setProperty('--i', el.dataset.reveal);
