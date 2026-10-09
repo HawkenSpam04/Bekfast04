@@ -2,6 +2,16 @@
 <!-- The site's pages, for search engines. Add a <url> here for every new page. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hi-studios.org/</loc></url>
+  <url><loc>https://hi-studios.org/architecture/</loc></url>
+  <url><loc>https://hi-studios.org/automotive/</loc></url>
+  <url><loc>https://hi-studios.org/aviation/</loc></url>
+  <url><loc>https://hi-studios.org/engagements/</loc></url>
+  <url><loc>https://hi-studios.org/fashion/</loc></url>
+  <url><loc>https://hi-studios.org/landscape/</loc></url>
+  <url><loc>https://hi-studios.org/macro/</loc></url>
+  <url><loc>https://hi-studios.org/portraits/</loc></url>
+  <url><loc>https://hi-studios.org/product/</loc></url>
+  <url><loc>https://hi-studios.org/sports/</loc></url>
   <url><loc>https://hi-studios.org/about/</loc></url>
   <url><loc>https://hi-studios.org/book/</loc></url>
 </urlset>

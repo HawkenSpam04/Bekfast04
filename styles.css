@@ -524,8 +524,8 @@ html.has-stuck .page-inner main { padding-top: var(--header-h, 0px); }
 .carousel-toggle.is-paused .icon-pause { display: none; }
 .carousel-toggle.is-paused .icon-play { display: block; }
 
-/* Services: one cover photo per category */
-.services { padding: var(--section-space) var(--grid-margin) 0; }
+/* Portfolio: one cover photo per category */
+.portfolio { padding: var(--section-space) var(--grid-margin) 0; }
 
 .categories {
   display: grid;
@@ -743,6 +743,22 @@ html.has-stuck .page-inner main { padding-top: var(--header-h, 0px); }
   }
   .tile:hover::before, .category:hover::before { opacity: 1; }
 }
+
+
+/* Gallery pages (portraits/, sports/, ...): photos flow down three columns
+   at their own proportions, nothing cropped */
+.gallery-section { padding: 0 var(--grid-margin); }
+.gallery {
+  columns: 3;
+  column-gap: var(--gutter);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.gallery__item { break-inside: avoid; margin-bottom: var(--gutter); }
+.gallery__item .tile { display: block; }
+.gallery__item img { width: 100%; height: auto; aspect-ratio: auto; display: block; }
 
 /* About */
 .about {
@@ -1002,6 +1018,7 @@ html.has-stuck .page-inner main { padding-top: var(--header-h, 0px); }
   .contact-card--band { grid-template-columns: minmax(0, 1fr); }
   .contact-card--band .contact-card__list { grid-template-columns: repeat(2, auto); justify-content: start; gap: 0 2rem; }
   .mosaic { --cell: calc((100vw - 2 * var(--grid-margin) - 3 * var(--gutter)) / 4); grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gallery { columns: 2; }
 }
 
 /* Phone */
@@ -1026,7 +1043,7 @@ html.has-stuck .page-inner main { padding-top: var(--header-h, 0px); }
   :root { --radius-card: 14px; }
   .contact-card { padding: 1.5rem 1.25rem 1rem; }
 
-  .services, .work { padding: var(--section-space) 8px 0; }
+  .portfolio, .work { padding: var(--section-space) 8px 0; }
   .section-head { margin-inline: calc(var(--margin) - 8px); }
   .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .category__body { padding: 0.9rem; }
@@ -1037,6 +1054,9 @@ html.has-stuck .page-inner main { padding-top: var(--header-h, 0px); }
   .mosaic { --cell: calc((100vw - 16px - 8px) / 2); grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .mosaic__item--big { grid-column: span 2; grid-row: span 2; }
   .mosaic__item--wide { grid-column: span 2; grid-row: span 1; }
+  .gallery-section { padding: 0 8px; }
+  .gallery { columns: 2; column-gap: 8px; }
+  .gallery__item { margin-bottom: 8px; }
 
   .about { grid-template-columns: minmax(0, 1fr); justify-items: center; }
 

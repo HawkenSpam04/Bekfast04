@@ -1,116 +1,8 @@
 'use strict';
 
-/* ── Your galleries ──────────────────────────────────────────────
-   Links on the homepage with data-gallery="name" (the carousel
-   captions and the "See photos" links) open that gallery full screen,
-   in this order. To add a photo, put it in the matching photos/
-   folder and list it here.
-   ───────────────────────────────────────────────────────────────── */
-const GALLERIES = {
-  architecture: [
-    'photos/architecture/ceiling.jpg',
-    'photos/architecture/window-ivy.jpg',
-  ],
-  automotive: [
-    'photos/automotive/bmw-front.jpg',
-  ],
-  aviation: [
-    'photos/aviation/taxiway-sign.jpg',
-    'photos/aviation/walk-sign.jpg',
-    'photos/aviation/window-wipe.jpg',
-    'photos/aviation/wing-windshield.jpg',
-    'photos/aviation/canopy-wipe.jpg',
-    'photos/aviation/underside-wipe.jpg',
-    'photos/aviation/towel-closeup.jpg',
-    'photos/aviation/pose-spray.jpg',
-    'photos/aviation/portrait-white-tee.jpg',
-    'photos/aviation/portrait-cap.jpg',
-  ],
-  engagements: [
-    'photos/engagements/proposal-surprise.jpg',
-    'photos/engagements/proposal-kneel.jpg',
-    'photos/engagements/hug-kneeling.jpg',
-    'photos/engagements/hug-film.jpg',
-    'photos/engagements/ring-pinky.jpg',
-    'photos/engagements/ring-hands.jpg',
-    'photos/engagements/couple-portrait.jpg',
-  ],
-  fashion: [
-    'photos/fashion/walk-away-reeds.jpg',
-    'photos/fashion/walk-toward-cap.jpg',
-    'photos/fashion/walk-glance.jpg',
-  ],
-  landscape: [
-    'photos/landscape/sunset-sun.jpg',
-    'photos/landscape/sunset-clouds.jpg',
-    'photos/landscape/marsh-boardwalk.jpg',
-    'photos/landscape/meadow-fog.jpg',
-  ],
-  macro: [
-    'photos/macro/fern-dark.jpg',
-    'photos/macro/fern-drops.jpg',
-    'photos/macro/fern-fronds.jpg',
-    'photos/macro/fern-stem.jpg',
-    'photos/macro/hand-grass.jpg',
-    'photos/macro/eye-closeup.jpg',
-    'photos/macro/pine-needles.jpg',
-  ],
-  portraits: [
-    'photos/portraits/walk-toward.jpg',
-    'photos/portraits/golden-closeup.jpg',
-    'photos/portraits/golden-smile-river.jpg',
-    'photos/portraits/golden-serious.jpg',
-    'photos/portraits/golden-standing.jpg',
-    'photos/portraits/laugh-green.jpg',
-    'photos/portraits/friends-talking.jpg',
-    'photos/portraits/swimmers.jpg',
-    'photos/portraits/autumn-field.jpg',
-    'photos/portraits/field-from-behind.jpg',
-    'photos/portraits/backpack-profile.jpg',
-    'photos/portraits/flowers-wide.jpg',
-    'photos/portraits/flowers-pockets.jpg',
-    'photos/portraits/flowers-side.jpg',
-    'photos/portraits/flowers-closeup.jpg',
-    'photos/portraits/hair-flip-lake.jpg',
-    'photos/portraits/boardwalk-marsh-profile.jpg',
-    'photos/portraits/boardwalk-seated-down.jpg',
-    'photos/portraits/boardwalk-seated-close.jpg',
-    'photos/portraits/boardwalk-seated-bw.jpg',
-    'photos/portraits/head-back-smile.jpg',
-    'photos/portraits/head-back-profile.jpg',
-    'photos/portraits/over-shoulder-smile.jpg',
-    'photos/portraits/boardwalk-rail-smile.jpg',
-    'photos/portraits/sunlit-eyes-closed.jpg',
-    'photos/portraits/boardwalk-rail-sun.jpg',
-    'photos/portraits/tree-lean-pond.jpg',
-    'photos/portraits/profile-backlit.jpg',
-    'photos/portraits/hand-on-hip-profile.jpg',
-    'photos/portraits/foliage-profile.jpg',
-    'photos/portraits/trail-hands-on-hips.jpg',
-  ],
-  product: [
-    'photos/product/front-print-walk.jpg',
-    'photos/product/back-print-closeup.jpg',
-    'photos/product/front-print-detail.jpg',
-  ],
-  sports: [
-    'photos/sports/qb-run-color.jpg',
-    'photos/sports/number-2-back.jpg',
-    'photos/sports/line-of-scrimmage.jpg',
-    'photos/sports/number-14.jpg',
-    'photos/sports/number-24.jpg',
-    'photos/sports/number-13-run.jpg',
-    'photos/sports/team-line.jpg',
-    'photos/sports/three-under-lights.jpg',
-    'photos/sports/qb-run-bw.jpg',
-    'photos/sports/ball-carrier.jpg',
-    'photos/sports/qb-scramble.jpg',
-    'photos/sports/number-21-back.jpg',
-    'photos/sports/walk-to-line.jpg',
-    'photos/sports/collage-trio.jpg',
-    'photos/sports/collage-throw.jpg',
-  ],
-};
+/* The galleries are their own pages (portraits/, sports/, ...), written
+   by tools/build.py from tools/galleries.json. Photo tiles on any page
+   open in the viewer below. */
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -276,23 +168,15 @@ if (lightbox) {
     peekNext.removeAttribute('src');
   });
 
-  // Carousel captions and the services "See photos" links open their gallery
-  function openGallery(event) {
-    const name = event.currentTarget.dataset.gallery;
-    const photos = GALLERIES[name];
-    if (!photos || !photos.length) return;
-    event.preventDefault();
-    openLightbox(photos, 0, `_${name.toUpperCase()}`);
-  }
-  for (const link of document.querySelectorAll('[data-gallery]')) link.addEventListener('click', openGallery);
-
-  // Mosaic tiles open in the same viewer
+  // Photo tiles (the homepage mosaic, or a gallery page) open in the viewer.
+  // A gallery page names itself with data-gallery-label on the list.
   const tiles = [...document.querySelectorAll('.tile')];
   const tilePhotos = tiles.map((tile) => tile.href);
+  const label = document.querySelector('[data-gallery-label]')?.dataset.galleryLabel ?? '_SELECTED';
   tiles.forEach((tile, position) => {
     tile.addEventListener('click', (event) => {
       event.preventDefault();
-      openLightbox(tilePhotos, position, '_SELECTED');
+      openLightbox(tilePhotos, position, label);
     });
   });
 }

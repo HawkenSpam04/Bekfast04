@@ -1,0 +1,158 @@
+{
+  "_comment": "One entry per gallery, in the order they appear on the site. photos are file names inside photos/<gallery>/, in the order they show. Run  python3 tools/build.py  after changing this file or adding photos.",
+  "galleries": [
+    {
+      "slug": "architecture",
+      "title": "Architecture",
+      "text": "Interiors and buildings, from grand halls to small rooms.",
+      "photos": [
+        "ceiling.jpg",
+        "window-ivy.jpg"
+      ]
+    },
+    {
+      "slug": "automotive",
+      "title": "Automotive",
+      "text": "Cars on location, lit to show off the paint and the lines.",
+      "photos": [
+        "bmw-front.jpg"
+      ]
+    },
+    {
+      "slug": "aviation",
+      "title": "Aviation",
+      "text": "Planes on the ramp, detailing in action and portraits with the aircraft.",
+      "photos": [
+        "taxiway-sign.jpg",
+        "walk-sign.jpg",
+        "window-wipe.jpg",
+        "wing-windshield.jpg",
+        "canopy-wipe.jpg",
+        "underside-wipe.jpg",
+        "towel-closeup.jpg",
+        "pose-spray.jpg",
+        "portrait-white-tee.jpg",
+        "portrait-cap.jpg"
+      ]
+    },
+    {
+      "slug": "engagements",
+      "title": "Engagements",
+      "text": "Proposals and engagement sessions: the moment, the ring, the two of you.",
+      "photos": [
+        "proposal-surprise.jpg",
+        "proposal-kneel.jpg",
+        "hug-kneeling.jpg",
+        "hug-film.jpg",
+        "ring-pinky.jpg",
+        "ring-hands.jpg",
+        "couple-portrait.jpg"
+      ]
+    },
+    {
+      "slug": "fashion",
+      "title": "Fashion",
+      "text": "Lookbooks and campaign shoots in natural light.",
+      "photos": [
+        "walk-away-reeds.jpg",
+        "walk-toward-cap.jpg",
+        "walk-glance.jpg"
+      ]
+    },
+    {
+      "slug": "landscape",
+      "title": "Landscape",
+      "text": "Coastlines, wetlands and wide-open skies.",
+      "photos": [
+        "sunset-sun.jpg",
+        "sunset-clouds.jpg",
+        "marsh-boardwalk.jpg",
+        "meadow-fog.jpg"
+      ]
+    },
+    {
+      "slug": "macro",
+      "title": "Macro",
+      "text": "Close-ups of the small things you would walk right past.",
+      "photos": [
+        "fern-dark.jpg",
+        "fern-drops.jpg",
+        "fern-fronds.jpg",
+        "fern-stem.jpg",
+        "hand-grass.jpg",
+        "eye-closeup.jpg",
+        "pine-needles.jpg"
+      ]
+    },
+    {
+      "slug": "portraits",
+      "title": "Portraits",
+      "text": "Relaxed, natural portraits outdoors.",
+      "photos": [
+        "walk-toward.jpg",
+        "golden-closeup.jpg",
+        "golden-smile-river.jpg",
+        "golden-serious.jpg",
+        "golden-standing.jpg",
+        "laugh-green.jpg",
+        "friends-talking.jpg",
+        "swimmers.jpg",
+        "autumn-field.jpg",
+        "field-from-behind.jpg",
+        "backpack-profile.jpg",
+        "flowers-wide.jpg",
+        "flowers-pockets.jpg",
+        "flowers-side.jpg",
+        "flowers-closeup.jpg",
+        "hair-flip-lake.jpg",
+        "boardwalk-marsh-profile.jpg",
+        "boardwalk-seated-down.jpg",
+        "boardwalk-seated-close.jpg",
+        "boardwalk-seated-bw.jpg",
+        "head-back-smile.jpg",
+        "head-back-profile.jpg",
+        "over-shoulder-smile.jpg",
+        "boardwalk-rail-smile.jpg",
+        "sunlit-eyes-closed.jpg",
+        "boardwalk-rail-sun.jpg",
+        "tree-lean-pond.jpg",
+        "profile-backlit.jpg",
+        "hand-on-hip-profile.jpg",
+        "foliage-profile.jpg",
+        "trail-hands-on-hips.jpg"
+      ]
+    },
+    {
+      "slug": "product",
+      "title": "Product",
+      "text": "Clean close-ups of products, prints and logos.",
+      "photos": [
+        "front-print-walk.jpg",
+        "back-print-closeup.jpg",
+        "front-print-detail.jpg"
+      ]
+    },
+    {
+      "slug": "sports",
+      "title": "Sports",
+      "text": "Games from the sideline under the lights, plus player portraits.",
+      "photos": [
+        "qb-run-color.jpg",
+        "number-2-back.jpg",
+        "line-of-scrimmage.jpg",
+        "number-14.jpg",
+        "number-24.jpg",
+        "number-13-run.jpg",
+        "team-line.jpg",
+        "three-under-lights.jpg",
+        "qb-run-bw.jpg",
+        "ball-carrier.jpg",
+        "qb-scramble.jpg",
+        "number-21-back.jpg",
+        "walk-to-line.jpg",
+        "collage-trio.jpg",
+        "collage-throw.jpg"
+      ]
+    }
+  ]
+}
