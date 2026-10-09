@@ -23,24 +23,26 @@
 ---
 
 ## 1. Visual Theme & Atmosphere
-A cinematic black-and-white frame for full-color photography. The interface is strictly monochrome so the work supplies every bit of color. Pages open on full-viewport dark media (a slow carousel of key photos) with white type laid straight over it; everything below the fold sits on paper white. A squared, technical display face gives the brand an expedition-gear feel, like the readout on a drone controller or a camera's top screen. Category names carry a leading underscore (`_MOUNTAINS`, `_AUTOMOTIVE`) and read like folder names on a memory card. Chrome is minimal, photos are big, gutters are thin. The overall impression: a field photographer's contact sheet, cleaned up for a gallery wall.
+A cinematic dark frame for full-color photography. Every page sits on Darkroom Black from top to bottom, with white type and one blue accent, so the work supplies every bit of color and reads like a gallery wall at night. Pages open on full-viewport dark media (a slow carousel of key photos) with white type laid straight over it; everything below the fold stays on the same black. A squared, technical display face gives the brand an expedition-gear feel, like the readout on a drone controller or a camera's top screen. Category names carry a leading underscore (`_MOUNTAINS`, `_AUTOMOTIVE`) and read like folder names on a memory card. Chrome is minimal, photos are big, gutters are thin. The overall impression: a field photographer's contact sheet, cleaned up for a gallery wall.
 
 ## 2. Color Palette & Roles
-- **Darkroom Black** (#0A0A0A) — Hero, header band and cinema surfaces; primary text on light backgrounds; lightbox backdrop
-- **Paper White** (#FFFFFF) — Main canvas below the fold; all text on dark media; primary button fill on dark
+- **Darkroom Black** (#0A0A0A) — The page, on every page: hero, header band, sections, lightbox backdrop
+- **Surface** (#141414) — Cards and image placeholders, one step up from the page
+- **Paper White** (#FFFFFF) — Headings, body text and icons; the booking embed's frame (Google's calendar is white)
 - **Index White** (rgba(255,255,255,0.85)) — Secondary white text on dark, such as the photo viewer's counter
 - **Track White** (rgba(255,255,255,0.35)) — The unfilled part of the carousel's progress bars
 - **Title Shade** (rgba(10,10,10,0.55), fading to clear) — A soft oval of shade behind the name centered on the hero, full strength across its middle half, so the white title keeps at least 4.5:1 contrast on bright photos without boxing it in
 - **Photo Scrim** (rgba(10,10,10,0.6), fading to clear) — Fades over the top third and bottom half of hero photos so the white header and caption stay readable while the middle stays untouched. The top fade holds full strength just under the top bar, behind the header, then fades out. On a cover photo with no fades, use a flat 0.15 and raise it on bright photos until white text keeps at least 3:1 contrast
 - **Frost Panel** (rgba(255,255,255,0.45)) — Translucent panel behind text blocks placed over a photograph (gallery covers, if used). Over dark or moody photos raise it to 0.7, or it reads as a grey box
 - **Haze Panel** (rgba(240,240,240,0.19)) — Lighter tint behind a single heading, only over a bright part of a photograph. Anywhere darker, use the Frost Panel so dark text stays readable
-- **Ink Rule** (#0A0A0A, 1px) — Dividers between accordion rows and list items on light or frosted surfaces
-- **Soft Ink** (#4A4A4A) — Body copy on white (About text, page-link descriptions, accordion descriptions, footer), so headings carry the contrast
-- **Hairline** (rgba(10,10,10,0.14) on light, rgba(255,255,255,0.14) on dark) — Dividers between list rows, page links and the footer. Replaces solid Ink Rules for a lighter, cleaner page
+- **Soft Ink** (#A3A3A3) — Secondary copy (About text, section intros, page-link descriptions, footer), so headings carry the contrast
+- **Hairline** (rgba(255,255,255,0.14)) — Dividers between list rows, page links and the footer
 - **Ash Gray** (#8A8A8A) — *Optional.* Captions, metadata, disabled states. Use sparingly
 
 ### Accent
-- **Studio Blue** (#1E40AF) — The one UI color, a semi-dark blue. Used for the primary pill button, the contact card's fill, eyebrow labels, the small arrow links, the bar that draws in under a category name, and hover states on page links and the footer glyph. Hover on blue fills: **Deep Blue** (#172F8A)
+- **Studio Blue** (#1E40AF) — The one UI color, a semi-dark blue, for fills: the primary pill button, the contact card and the bar that draws in under a category name. Hover on blue fills: **Deep Blue** (#172F8A)
+- **Sky Blue** (#7B96FF) — The same blue lifted for text and icons on black, where Studio Blue would be too dark to read: eyebrow labels, small arrow links, hover states on page links and the footer glyph, and the end of a display heading's gradient
+- **Blue Glow** (rgba(30,64,175,0.35), fading to clear) — A soft radial glow behind inner-page titles, so the page head isn't a flat black slab
 - It never goes on or over a photograph except as that short bar under a tile's name. Everything else stays monochrome so the photos keep the color
 
 ### Banned Colors
@@ -48,14 +50,15 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 - Purple/blue neon gradients and glows
 - Pure black `#000000`: use Darkroom Black
 - Tinted grays: every neutral stays true gray (equal R, G, B)
+- White or light backgrounds behind content: the only white surface is Google's booking calendar
 
 ## 3. Typography Rules
-- **Display: `Oxanium` 400** — Squared, technical letterforms. Track-tight `-0.02em`. Used for the wordmark, carousel captions, section headings, gallery titles and accordion titles. Never bolded; hierarchy comes from size and case
-  - Wordmark: `2.64rem` (42px), UPPERCASE
-  - Hero name: `clamp(3.25rem, 8.5vw, 7.5rem)` (120px at 1440px), UPPERCASE, line-height `0.9`. The tagline under it is body font 700, UPPERCASE, `clamp(0.875rem, 1.2vw, 1.125rem)`, tracking `0.32em`
-  - Page titles (inner pages): `clamp(2.75rem, 6vw, 5rem)`, line-height `1.1`
+- **Display: `Oxanium` 400 and 600** — Squared, technical letterforms. Track-tight `-0.02em`. 400 for the wordmark, carousel captions, tile names and page-link titles; 600 (`.display`) for the hero name, page titles and section headings, tracked `-0.03em`, with a gradient from Paper White at 30% into Sky Blue at the end (`linear-gradient(100deg)` clipped to the text)
+  - Wordmark: `1.75rem`, UPPERCASE
+  - Hero name: 600, `clamp(3.5rem, 10vw, 9rem)` (144px at 1440px), UPPERCASE, line-height `0.9`, plain white. The tagline under it is body font 700, UPPERCASE, `clamp(0.875rem, 1.2vw, 1.125rem)`, tracking `0.32em`
+  - Page titles (inner pages): 600, `clamp(3rem, 7.5vw, 6.5rem)`, line-height `1`, gradient
   - Carousel captions: `clamp(1.5rem, 2.4vw, 2.25rem)` (36px at 1440px), UPPERCASE, leading underscore, a small trailing arrow
-  - Section headings: `clamp(2.25rem, 3.5vw, 3.25rem)`, line-height `1.2`. Sentence case or even lowercase ("who am I?") is welcome; the casual voice plays against the technical face
+  - Section headings: 600, `clamp(2.5rem, 5vw, 4.5rem)`, line-height `1`, gradient, under an eyebrow. Sentence case is welcome; the casual voice plays against the technical face
   - Sub-headings and accordion titles: `1.38rem` (22px), line-height `1.35`
 - **Body: `Geist` 400** — `1.0625rem` (17px), line-height `1.65`, no extra tracking, max-width `65ch`, left-aligned
 - **Navigation:** body font 700, UPPERCASE, `0.8125rem`, tracking `0.14em`, links `clamp(1.5rem, 3vw, 2.5rem)` apart
@@ -71,8 +74,8 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 ## 4. Component Stylings
 * **Top bar:** A thin Darkroom Black band across the very top, `40px` tall (`44px` on phones), above the header. The phone, then the two emails (Ian's, then Huntur's) in `0.8125rem` body text, Index White, each with a `13px` line icon, centered on one line and split by short Track White rules. Below `560px` wide it becomes two `40px` lines, the phone over both emails (`80px` in all); below `360px`, each email gets a line of its own too (`120px`). Each number and address is a `tel:`/`mailto:` link that goes Paper White and underlined on hover. It scrolls away with the page
 * **Header (over dark media):** Transparent, one row with three zones: social chips on the left, the nav in the center, primary button on the right. About `2.5rem` top padding. All white, sitting on whatever media is behind it. On the homepage the wordmark is left out, since the name is centered on the carousel below
-* **Header (inner pages):** The same three zones on a solid Darkroom Black band, with the wordmark back above the nav, linking home. The current page's nav link keeps its underline
-* **Page head (inner pages):** The black band carries on under the header and holds the page's Oxanium title, centered, with an optional one-sentence intro in Index White under it (`56ch` max). `40px` rounded bottom corners, like gallery covers
+* **Header (inner pages):** The same three zones, with the wordmark back above the nav, linking home. The current page's nav link keeps its underline
+* **Page head (inner pages):** Under the header, the page's display title centered on a Blue Glow, with an optional one-sentence intro in Soft Ink under it (`52ch` max)
 * **Social chips:** `44px` outline circles (1px white at 40%) holding `16px` white glyphs; on hover they fill Paper White with a black glyph, `10px` apart. In the footer they invert to bare black glyphs (`22px`), centered
 * **Nav links:** UPPERCASE body text, about `0.6em` apart. Hover and keyboard focus: a `1px` underline in `currentColor`, `2px` below the text, draws in from the left (`scaleX` 0 → 1)
 * **Carousel controls:** Bottom right of the hero. One thin `2px` bar per photo in Track White inside a `44px`-tall button; the active bar fills with Paper White over the slide's display time. A pause/play icon button sits after the bars. No arrows, no numbered dots
@@ -81,14 +84,14 @@ A cinematic black-and-white frame for full-color photography. The interface is s
 * **Category tiles (services):** One cover photo per category in a 5-column grid of 4:5 tiles with `20px` corners (3 columns on tablets, 2 on phones). A dark fade over the bottom half carries the name in Oxanium (`_ARCHITECTURE`, uppercase, white). On hover the photo zooms to `1.05`, a `2rem` Studio Blue bar draws in under the name and a one-line description unfolds beneath it (phones show the name only). The tile opens that category's gallery in the lightbox
 * **Photo tiles:** `20px` corners (`14px` on phones), no borders, shadows or captions. A click opens a full-screen lightbox on Darkroom Black
 * **Mosaic (Selected work):** A 6-column grid of near-square cells (`grid-auto-rows` = cell width × 1.1, `grid-auto-flow: dense`). Items span cells: big (2×2), wide (2×1), tall (1×2) or single. Choose spans so the grid fills exactly with no holes (13 photos = 24 cells). Phones use 2 columns; tablets 4
-* **Booking embed:** The site's one form of booking, on a page of its own (Book a shoot) under the page head. Google Calendar's booking page in a full-width iframe on Paper White. Its height follows its own width: about `690px`, and `1150px` below `600px` wide, where Google stacks it into one column. Underneath, centered to match Google's centered calendar: a text link to open the booking page in a new tab, then the contact card. The header's pill button links to this page
+* **Booking embed:** The site's one form of booking, on a page of its own (Book a shoot) under the page head. Google Calendar's booking page in a full-width iframe, white with `20px` corners on the black page. Its height follows its own width: about `690px`, and `1150px` below `600px` wide, where Google stacks it into one column. Underneath, centered to match Google's centered calendar: a text link to open the booking page in a new tab, then the contact card. The header's pill button links to this page
 * **Page links:** At the end of every page, two links to the site's other pages, side by side (stacked on phones). Each is an Oxanium title (`clamp(1.75rem, 2.8vw, 2.5rem)`), a one-line body description (`1rem`) and a small arrow on the right, between Ink Rules. Hover: the title underlines and the arrow nudges right
 * **Circular portrait:** The one exception to sharp corners. `330px` circle on desktop, cropped to head and shoulders, on the Behind the Lens page only
 * **Video row:** A 16:9 embed on one side; a section heading and a one-sentence description on the other. The sides alternate row to row
 * **Previous / Next gallery nav:** At the end of every gallery. A small body-text label ("Previous" / "Next") above the Oxanium gallery name (`_AQUA`), aligned left and right
-* **Footer:** White and centered under a Hairline: social glyphs, then `© COPYRIGHT {YEAR} | ALL RIGHTS RESERVED` in small (`0.75rem`) tracked UPPERCASE Soft Ink. Nothing else
+* **Footer:** Centered under a Hairline: a white social glyph, then `© COPYRIGHT {YEAR} | ALL RIGHTS RESERVED` in small (`0.75rem`) tracked UPPERCASE Soft Ink. Nothing else
 * **Section head:** Above the homepage photo strip: an eyebrow ("Recent shoots") over an Oxanium heading ("Selected work") on the left, and a small uppercase "All categories" link with an arrow on the right
-* **Loaders:** Image placeholders in `#F2F2F2` (or Darkroom Black on dark sections) at the image's exact aspect ratio; the photo fades in over them. No spinners
+* **Loaders:** Image placeholders in Surface at the image's exact aspect ratio; the photo fades in over them. No spinners
 * **Forms (contact page):** Label above the field, a `1px` Ink Rule bottom border only, error text below. Submit uses the primary button
 
 ## 5. Hero Section — Featured Carousel
@@ -103,16 +106,15 @@ The first impression: four key photos, one at a time, full screen.
 
 ## 6. Layout Principles
 - **Full-bleed first:** Hero and cover sections span the whole viewport width. Content sections use `4vw` side margins (58px at 1440px); photo grids go wider, with about `1.2vw` (17px) margins
-- **Rounded bottom edge:** Full-bleed photo sections that sit on white (gallery covers) get a `40px` radius on the bottom corners only. Top corners stay square
 - **Thin gutters:** `16px` between tiles in grids, `20px` in gallery strips. Photos nearly touch, so a grid reads as one mosaic
 - **Grid-first:** CSS Grid for every tile layout; no percentage math with `calc()`
 - **Section spacing:** `clamp(3rem, 8vw, 6rem)` between content sections. Photo sections sit one gutter apart
 - **Page templates:**
   - *Home:* Top bar → carousel hero with the centered name → "Our Portfolio" section head and the 10 category tiles, with the contact band under them → "Selected work" section head and the mosaic → page links (Behind the Lens, Book a shoot) → footer
-  - *Behind the Lens:* Top bar → black header band → page head → circular portrait left, body right → page links (Our Portfolio, Book a shoot) → footer
-  - *Book a shoot:* Top bar → black header band → page head with a one-sentence intro → booking embed → new-tab link and contact card → page links (Our Portfolio, Behind the Lens) → footer
-  - *Gallery:* cover photo (about `66dvh`, rounded bottom) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
-  - *Video:* Darkroom Black header band → alternating zig-zag video rows on white, about `90px` apart
+  - *Behind the Lens:* Top bar → header → page head → circular portrait left, body right → page links (Our Portfolio, Book a shoot) → footer
+  - *Book a shoot:* Top bar → header → page head with a one-sentence intro → booking embed → new-tab link and contact card → page links (Our Portfolio, Behind the Lens) → footer
+  - *Gallery:* cover photo (about `66dvh`) → justified strip gallery whose rows vary (two landscapes; five portraits; one portrait plus one wide) → previous/next → footer
+  - *Video:* header → alternating zig-zag video rows, about `90px` apart
   - *Client gallery (e.g. real estate):* full-bleed cover with a scrim → 3-column 4:3 grid → footer
 
 ## 7. Responsive Rules
@@ -147,7 +149,7 @@ Restrained and photographic: dissolves, not bounces.
 - No captions, watermarks or hover overlays cluttering the grid
 - One hero headline only: the name and its tagline. No slogans, extra buttons or text blocks over the photos
 - No emojis
-- No `Inter`, no generic serifs, no more than two type families
+- No `Inter`, no generic serifs, no more than two type families; Oxanium 600 only on display headings, never on body or labels
 - No pure black `#000000`
 - No filler UI text ("Scroll to explore", bouncing chevrons)
 - No AI copywriting clichés: "Elevate", "Seamless", "Unleash", "Capture your story"
