@@ -61,7 +61,7 @@ A cinematic dark frame for full-color photography. Every page sits on Darkroom B
   - Section headings: 600, `clamp(2.5rem, 5vw, 4.5rem)`, line-height `1`, gradient, under an eyebrow. Sentence case is welcome; the casual voice plays against the technical face
   - Sub-headings and accordion titles: `1.38rem` (22px), line-height `1.35`
 - **Body: `Geist` 400** — `1.0625rem` (17px), line-height `1.65`, no extra tracking, max-width `65ch`, left-aligned
-- **Navigation:** body font 700, UPPERCASE, `0.8125rem`, tracking `0.14em`, links `clamp(1.5rem, 3vw, 2.5rem)` apart
+- **Navigation:** Oxanium 400, the wordmark's face, UPPERCASE, `0.9375rem`, tracking `0.1em`, links `clamp(1.5rem, 3vw, 2.5rem)` apart
 - **Buttons:** body font 700, UPPERCASE, `0.8125rem`, tracking `0.14em`
 - **Eyebrow labels:** body font 700, UPPERCASE, `0.75rem`, tracking `0.2em`, 60% opacity, above section headings and as the contact card's label
 - **Mono (optional): `Geist Mono`** `0.8125rem` — Camera metadata captions only, e.g. `f/2.8 · 1/500s · ISO 200`
