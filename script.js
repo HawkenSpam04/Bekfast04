@@ -52,6 +52,7 @@ const GALLERIES = {
     'photos/macro/fern-fronds.jpg',
     'photos/macro/fern-stem.jpg',
     'photos/macro/hand-grass.jpg',
+    'photos/macro/sunlit-eyes-closed.jpg',
   ],
   portraits: [
     'photos/portraits/walk-toward.jpg',
@@ -78,7 +79,6 @@ const GALLERIES = {
     'photos/portraits/head-back-profile.jpg',
     'photos/portraits/over-shoulder-smile.jpg',
     'photos/portraits/boardwalk-rail-smile.jpg',
-    'photos/portraits/sunlit-eyes-closed.jpg',
     'photos/portraits/boardwalk-rail-sun.jpg',
     'photos/portraits/tree-lean-pond.jpg',
     'photos/portraits/profile-backlit.jpg',
