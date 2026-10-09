@@ -54,7 +54,6 @@ const GALLERIES = {
     'photos/macro/fern-stem.jpg',
   ],
   portraits: [
-    'photos/portraits/standing-reeds.jpg',
     'photos/portraits/walk-toward.jpg',
     'photos/portraits/golden-closeup.jpg',
     'photos/portraits/golden-smile-river.jpg',
@@ -65,7 +64,6 @@ const GALLERIES = {
     'photos/portraits/swimmers.jpg',
     'photos/portraits/autumn-field.jpg',
     'photos/portraits/field-from-behind.jpg',
-    'photos/portraits/field-look-back.jpg',
     'photos/portraits/backpack-profile.jpg',
     'photos/portraits/hand-grass.jpg',
     'photos/portraits/flowers-wide.jpg',
